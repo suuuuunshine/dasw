@@ -1,0 +1,380 @@
+{
+  "categories": [
+    {
+      "tipo": "wrap",
+      "imagen": "BurritoWine.jpg",
+      "id": 1,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "tipo": "pizza",
+      "imagen": "PizzaWine.jpg",
+      "id": 2,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "tipo": "hotdog",
+      "imagen": "HotdogCouple.jpg",
+      "id": 4,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "tipo": "burger",
+      "imagen": "BurgerBeer.jpg",
+      "id": 5,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "tipo": "baguette",
+      "imagen": "Baguette.jpg",
+      "id": 6,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "tipo": "postre",
+      "imagen": "PostreFrutas.jpg",
+      "id": 7,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "tipo": "bebidas",
+      "imagen": "Soda.jpg",
+      "id": 8,
+      "hidden": 0,
+      "deleted": 0
+    }
+  ],
+  "products": [
+    {
+      "nombre": "Wrap de Picadillo",
+      "calificacion": 5,
+      "precio": 70,
+      "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
+      "imagen": "BurritoPicadillo.jpg",
+      "producto": 1,
+      "id": 1,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "nombre": "Wrap Chor/Tofu",
+      "calificacion": 5,
+      "precio": 70,
+      "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
+      "imagen": "BurritoTofuChorizo.png",
+      "producto": 1,
+      "id": 2,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "nombre": "Wrap Atún-Aguacate",
+      "calificacion": 5,
+      "precio": 70,
+      "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
+      "imagen": "BurritoAtunAguacate.jpg",
+      "producto": 1,
+      "id": 3,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "nombre": "Pizza Tomate & Olivo",
+      "calificacion": 5,
+      "precio": 150,
+      "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
+      "imagen": "PizzaTomatoesOlive.jpg",
+      "producto": 2,
+      "id": 4,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "nombre": "Pizza Mushroom & Garlic",
+      "calificacion": 5,
+      "precio": 150,
+      "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
+      "imagen": "PizzaTomatoesMushroomsGarlic.jpg",
+      "producto": 2,
+      "id": 5,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "nombre": "Pizza Mediterranea",
+      "calificacion": 5,
+      "precio": 150,
+      "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
+      "imagen": "PizzaTomatoesOlive.jpg",
+      "producto": 2,
+      "id": 6,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "nombre": "Cheese-Sandwich",
+      "calificacion": 5,
+      "precio": 50,
+      "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
+      "imagen": "SandwichCheese.jpg",
+      "producto": 3,
+      "id": 7,
+      "hidden": 1,
+      "deleted": 0
+    },
+    {
+      "nombre": "Tuna-Avocado Sandwich",
+      "calificacion": 5,
+      "precio": 50,
+      "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
+      "imagen": "SandwichAtunAguacate.jpg",
+      "producto": 3,
+      "id": 8,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "nombre": "American Sandwich",
+      "calificacion": 5,
+      "precio": 50,
+      "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
+      "imagen": "SandwichSalamiHuevo.jpg",
+      "producto": 3,
+      "id": 9,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "nombre": "Wild-hog Hot Dog",
+      "calificacion": 5,
+      "precio": 60,
+      "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
+      "imagen": "HotdogCerdoPimiento.jpg",
+      "producto": 4,
+      "id": 10,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "nombre": "Classic-Mustard Hot Dog",
+      "calificacion": 5,
+      "precio": 60,
+      "descripcion": "Pan pretzel, salchicha Rindswürst, queso mozzarella y mostaza dijon.",
+      "imagen": "HotdogClasico.jpg",
+      "producto": 4,
+      "id": 11,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "nombre": "Caramel-Onion Spicy Hot Dog",
+      "calificacion": 5,
+      "precio": 60,
+      "descripcion": "Pan natural, salchicha Rindswürst, queso cheddar, salsa BBQ, tiras de cebolla caramelizada crujientes y trozos de chile verde.",
+      "imagen": "HotdogGourmet.png",
+      "producto": 4,
+      "id": 12,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "nombre": "Turkey Hot Dog",
+      "calificacion": 5,
+      "precio": 60,
+      "descripcion": "Pan natural, salchicha italiana de pavo, lechuga fresca, jitomate, cebolla y aderezo chipotle",
+      "imagen": "HotdogLechuga.jpg",
+      "producto": 4,
+      "id": 13,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "nombre": "Mustard-Onion Hot Dog",
+      "calificacion": 5,
+      "precio": 60,
+      "descripcion": "Pan pretzel, salchicha Frankfurt, deliciosa cebolla caramelizada y cremosa mostaza dijon.",
+      "imagen": "HotdogMostaza.jpg",
+      "producto": 4,
+      "id": 14,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "nombre": "Chicken Burger",
+      "calificacion": 5,
+      "precio": 90,
+      "descripcion": "Al clásico sabor del pollo crujiente con lechuga fresca picada, jitomate, una capa de mayonesa cremosa, servida sobre un pan suave, le agregamos todo lo rico del chipotle, aros de cebolla, salsa BBQ Hot Spicy, tocino rebanado y queso monterrey. ¡Tienes que probarla!",
+      "imagen": "BurgerChicken.jpg",
+      "producto": 5,
+      "id": 15,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "nombre": "Double Cheese Burger",
+      "calificacion": 5,
+      "precio": 120,
+      "descripcion": "Cuenta con dos carnes a la parrilla, dos rebanada de queso amarillo, lechuga fresca, cebolla crujiente, pepinillos y salsa agridulce con tres rebanadas de pan suave con ajonjolí.",
+      "imagen": "BurgerDoubleCheese.jpg",
+      "producto": 5,
+      "id": 16,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "nombre": "Caramel-Onion Burger",
+      "calificacion": 5,
+      "precio": 100,
+      "descripcion": "Todo lo que quieres dentro de una hamburguesa y mas. Con carne a la parrilla, queso manchego derretido, cebolla carmelizada crujiente, mayonesa y un toque de salsa BBQ.",
+      "imagen": "BurgerResMachegoCebolla.jpg",
+      "producto": 5,
+      "id": 17,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "nombre": "Mushroom-Salami Burger",
+      "calificacion": 5,
+      "precio": 90,
+      "descripcion": "Mushroom-Salami Burger lleva una jugosa carne de res a la parrilla, preparada con deliciosas rebanadas de salami, jugosos tomates, lechuga recién cortada, mayonesa, jalapeños y cebollitas angry, sobre un pan suave con ajonjolí.",
+      "imagen": "BurgerResSalami.jpg",
+      "producto": 5,
+      "id": 18,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "nombre": "Baguette Ricotta-Pollo Mozarella",
+      "calificacion": 5,
+      "precio": 80,
+      "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
+      "imagen": "BaguetteRocottaPolloMozarella.jpg",
+      "producto": 6,
+      "id": 19,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "nombre": "Baguette Americano I",
+      "calificacion": 5,
+      "precio": 80,
+      "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
+      "imagen": "BaguetteJamonAhumPepiQueso.jpg",
+      "producto": 6,
+      "id": 20,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "nombre": "Baguette Americano II",
+      "calificacion": 5,
+      "precio": 80,
+      "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
+      "imagen": "BaguetteGoudaJamon.jpg",
+      "producto": 6,
+      "id": 21,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "nombre": "Baguette Betabel-Pollo",
+      "calificacion": 5,
+      "precio": 80,
+      "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
+      "imagen": "BaguetteBetabelMachegoPollo.jpg",
+      "producto": 6,
+      "id": 22,
+      "hidden": 1,
+      "deleted": 0
+    },
+    {
+      "nombre": "Pay de Limón",
+      "calificacion": 5,
+      "precio": 50,
+      "descripcion": "Suave textura y cremosa sensación con un toque fresco de limon y hiervabuena.",
+      "imagen": "PostrePayLimon.jpg",
+      "producto": 7,
+      "id": 23,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "nombre": "Pastel Tres-leches",
+      "calificacion": 5,
+      "precio": 50,
+      "descripcion": "Suave postre con tectura cremosa y un toque envinado.",
+      "imagen": "PostreTresLeches.jpg",
+      "producto": 7,
+      "id": 24,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "nombre": "Cheesecake",
+      "calificacion": 5,
+      "precio": 50,
+      "descripcion": "Delicioso cheesecake con los mejores frutos rojos.",
+      "imagen": "PostreCheesecake.jpg",
+      "producto": 7,
+      "id": 25,
+      "hidden": 0,
+      "deleted": 0
+    },
+    {
+      "nombre": "Sodas",
+      "calificacion": 5,
+      "precio": 20,
+      "descripcion": "Refrescos de la familia Coca-cola.",
+      "imagen": "SodasLata.jpg",
+      "producto": 8,
+      "id": 26,
+      "hidden": 0,
+      "deleted": 1
+    }
+  ],
+  "usuarios": [
+    {
+      "nombre": " Miguel ",
+      "apellido": "Valencia",
+      "correo": "m@c.com",
+      "password": "123",
+      "telefono": null,
+      "descripcion": null,
+      "imagen": null,
+      "id": 1
+    },
+    {
+      "nombre": "Luis Miguel",
+      "apellido": "Rodriguez",
+      "correo": "lmrodriguez506@gmail.com",
+      "password": "123",
+      "telefono": null,
+      "descripcion": null,
+      "imagen": null,
+      "id": 2
+    },
+    {
+      "nombre": "Luis Miguel",
+      "apellido": "Valencia",
+      "correo": "correo@correo.com",
+      "password": "123",
+      "id": 3
+    }
+  ],
+  "pedido": [
+    {
+      "nombre": "Pizza Tomate & Olivo",
+      "precio": 150,
+      "cantidad": 2,
+      "comentarios": "",
+      "imagen": "PizzaTomatoesOlive.jpg",
+      "id": 1
+    }
+  ]
+}

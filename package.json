@@ -1,0 +1,27 @@
+{
+  "name": "food-project",
+  "version": "1.0.0",
+  "description": "iteso project",
+  "main": "main.js",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "fs": "0.0.1-security",
+    "json-server": "^0.16.1",
+    "jwt-simple": "^0.5.6",
+    "moment": "^2.25.3",
+    "mongoose": "^5.9.12",
+    "mongoose-autopopulate": "^0.12.2",
+    "mongoose-type-email": "^1.0.12",
+    "nodemon": "^2.0.3",
+    "randomatic": "^3.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  },
+  "scripts": {
+    "start": "nodemon ./assets/js/server.js",
+    "dev": "nodemon ./assets/js/server.js"
+  },
+  "author": "Sol, Adrian, Luis",
+  "license": "ISC"
+}

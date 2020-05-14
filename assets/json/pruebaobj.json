@@ -1,0 +1,68 @@
+{
+    "carrito":
+    [
+        Sol
+        {
+            "id": 1,
+            "id_pt": 2,
+            "monto": 10
+        },
+        {
+            "id": 1,
+            "id_pt": 1,
+            "monto": 10
+        },
+        {
+            "id": 1,
+            "id_pt": 3,
+            "monto": 10
+        }
+        luis
+        id[
+            {
+                "id": 1,
+                "id_pt": 2,
+                "monto": 10
+            },
+            {
+                "id": 1,
+                "id_pt": 1,
+                "monto": 10
+            },
+            {
+                "id": 1,
+                "id_pt": 3,
+                "monto": 10
+            }
+        ]
+    ],
+
+    "hist_pedidos":
+    [
+        {
+            "id_u": 1,
+            "id_pedido": 1,
+            "pedido"
+            [
+                {
+                    "id": 1,
+                    "id_pt": 2,
+                    "monto": 10
+                },
+                {
+                    "id": 1,
+                    "id_pt": 1,
+                    "monto": 10
+                },
+                {
+                    "id": 1,
+                    "id_pt": 3,
+                    "monto": 10
+                }
+
+            ]
+        }
+
+    ]
+
+}

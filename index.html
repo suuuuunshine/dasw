@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--  
+    Document Title
+    =============================================
+    -->
+  <title>Comida a domicilio</title>
+  <!--  
+    Favicons
+    =============================================
+    -->
+  <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicons/favicon.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="assets/images/favicons/favicon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicons/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicons/favicon.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicons/favicon.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="assets/images/favicons/favicon.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicons/favicon.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/images/favicons/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/favicon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicons/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicons/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="assets/images/favicons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <!--  
+    Stylesheets
+    =============================================
+    
+    -->
+  <!-- Default stylesheets-->
+  <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Template specific stylesheets-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+  <link href="assets/lib/animate.css/animate.css" rel="stylesheet">
+  <link href="assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="assets/lib/et-line-font/et-line-font.css" rel="stylesheet">
+  <link href="assets/lib/flexslider/flexslider.css" rel="stylesheet">
+  <link href="assets/lib/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/lib/owl.carousel/dist/assets/owl.theme.default.min.css" rel="stylesheet">
+  <link href="assets/lib/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
+  <link href="assets/lib/simple-text-rotator/simpletextrotator.css" rel="stylesheet">
+  <!-- Main stylesheet and color file-->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
+</head>
+
+<body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+  <main>
+    <div class="page-loader">
+      <div class="loader">Loading...</div>
+    </div>
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.html">Inicio</a>
+        </div>
+        <div class="collapse navbar-collapse" id="custom-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            
+            <li class="navbar-header"><a href="menu.html">Menu</a></li>
+
+            <li class="navbar-header"><a href="canasta.html">Canasta</a></li>
+
+            <li class="navbar-header"><a href="perfil.html">Perfil</a></li>
+
+            <li class="navbar-header"><a href="admin-pedidos.html">Consultar Pedidos</a></li>
+
+            <li class="navbar-header" id="login_reg" ><a href="login_register.html">Inicio de Sesión / Registro</a></li>
+            <li class="navbar-header" id="logout" ><a onclick="logout()">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <section class="home-section home-full-height" id="home">
+      <div class="hero-slider">
+        <ul class="slides">
+          <li class="bg-dark-30 restaurant-page-header bg-dark"
+            style="background-image:url(&quot;assets/images/restaurant/slider1.jpg&quot;);">
+            <div class="titan-caption">
+              <div class="caption-content">
+                <div class="font-alt mb-30 titan-title-size-1">Bienvenidos</div>
+                <div class="font-alt mb-40 titan-title-size-4">Comida a domicilio</div><a
+                  class="section-scroll btn btn-border-w btn-round" href="menu.html">Descubre nuestro menú</a>
+              </div>
+            </div>
+          </li>
+          <li class="bg-dark-30 restaurant-page-header bg-dark"
+            style="background-image:url(&quot;assets/images/restaurant/slider2.jpg&quot;);">
+            <div class="titan-caption">
+              <div class="caption-content">
+                <div class="font-alt mb-30 titan-title-size-2">Aplicación de comida a domicilio</div><a
+                  class="btn btn-border-w btn-round" href="menu.html">Ordena ahora</a>
+              </div>
+            </div>
+          </li>
+          <li class="bg-dark-30 restaurant-page-header bg-dark"
+            style="background-image:url(&quot;assets/images/restaurant/slider3.jpg&quot;);">
+            <div class="titan-caption">
+              <div class="caption-content">
+                <div class="font-alt mb-30 titan-title-size-1">Descubre</div>
+                <div class="font-alt mb-40 titan-title-size-3">nuestras especialidades</div><a
+                  class="section-scroll btn btn-border-w btn-round" href="#specialities">Click aquí</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <div class="main">
+      <section class="module" id="services">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-2 col-sm-offset-5">
+              <div class="alt-module-subtitle"><span class="holder-w"></span>
+                <h5 class="font-serif">A la puerta de tu casa</h5><span class="holder-w"></span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+              <h2 class="module-title font-alt">Servicios</h2>
+            </div>
+          </div>
+          <div class="row multi-columns-row">
+            <div class="col-sm-6 col-md-3 col-lg-3">
+              <div class="features-item">
+                <div class="features-icon"><span class="icon-clock"></span></div>
+                <h3 class="features-title font-alt">Abierto 24/7</h3>Ordena comida a cualquier hora del día, estaremos
+                en tu puerta en 30 minutos.
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3 col-lg-3">
+              <div class="features-item">
+                <div class="features-icon"><span class="icon-streetsign"></span></div>
+                <h3 class="features-title font-alt">Cubrimos toda la ZMG</h3>Pide tu platillo favorito desde cualquier
+                punto dentro de periférico
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3 col-lg-3">
+              <div class="features-item">
+                <div class="features-icon"><span class="icon-map"></span></div>
+                <h3 class="features-title font-alt">Ubicación céntrica</h3>Muy fácil de llegar si decides pasar por tus
+                platillos.
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3 col-lg-3">
+              <div class="features-item">
+                <div class="features-icon"><span class="icon-heart"></span></div>
+                <h3 class="features-title font-alt">Hecho con amor</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <hr class="divider-w">
+      <section class="module module-video bg-dark-30" data-background="assets/images/restaurant/coffee_bg.png">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+              <h2 class="module-title font-alt mb-0">El mejor servicio de comida en la ciudad</h2>
+            </div>
+          </div>
+        </div>
+        <div class="video-player"
+          data-property="{videoURL:'https://www.youtube.com/watch?v=i_XV7YCRzKo', containment:'.module-video', startAt:3, mute:true, autoPlay:true, loop:true, opacity:1, showControls:false, showYTLogo:false, vol:25}">
+        </div>
+      </section>
+      <section class="module" id="specialities">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-2 col-sm-offset-5">
+              <div class="alt-module-subtitle"><span class="holder-w"></span>
+                <h5 class="font-serif">Enamórate de</h5><span class="holder-w"></span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+              <h2 class="module-title font-alt">Nuestras especialidades</h2>
+            </div>
+          </div>
+          <div class="row multi-columns-row">
+            <div class="col-sm-6 col-md-3 col-lg-3">
+                <div class="content-box">
+                  <div onclick="ldID(6)" class="content-box-image"><img src="assets/images/restaurant/kabab.jpg" alt="Kabab" /></div>
+                  <h3 class="content-box-title font-serif">Baguette</h3>Es un plato originario del Medio Oriente que consiste
+                  en finas laminas de carne de cordero asada en un asador vertical y consumidas en pan
+                  pita junto con vegetales.
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3 col-lg-3">
+              <div class="content-box">
+                <div onclick="ldID(3)" class="content-box-image"><img src="assets/images/Sandwich3en1.jpg" alt="sandwich" /></div>
+                <h3 class="content-box-title font-serif">Sándwich</h3>El mejor sándwich que vas a probar
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3 col-lg-3">
+              <div class="content-box">
+                <div onclick="ldID(5)" class="content-box-image"><img src="assets/images/restaurant/radish.jpg" alt="Radish" /></div>
+                <h3 class="content-box-title font-serif">Hamburguesa especial</h3> La mejor materia prima, receta
+                casera, natural, sin aditivos, como si lo hicieses en casa y una combinación deliciosa
+                y original, que no tiene nada que ver con la clásica hamburguesa sencilla de comida rápida.
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3 col-lg-3">
+              <div class="content-box">
+                <div onclick="ldID(4)" class="content-box-image"><img src="assets/images/HotdogCouple.jpg" alt="Corn" /></div>
+                <h3 class="content-box-title font-serif">Hot Dogs</h3>Salchicha de primera calidad con ingredientes frescos y sabrosos, el pan es hecho en casa con harina integral.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <hr class="divider-d">
+      <footer class="footer bg-dark">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6">
+              <p class="copyright font-alt">&copy; 2020&nbsp;<a href="index.html">ITESO</a>, Todos los derechos
+                reservados</p>
+            </div>
+            <div class="col-sm-6">
+              <div class="footer-social-links"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i
+                    class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i
+                    class="fa fa-skype"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
+  </main>
+  <!--  
+    JavaScripts
+    =============================================
+    -->
+
+  <script>
+    //Oculta la pestaña de login en el menu_producto
+    if(localStorage.token != ''){
+        document.querySelector('#login_reg').remove()
+    }else{
+      document.querySelector('#logout').remove()
+    }
+  </script>
+  <script src="assets/js/FrontEnd/logout.js"></script>
+  <script src="assets/lib/jquery/dist/jquery.js"></script>
+  <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="assets/lib/wow/dist/wow.js"></script>
+  <script src="assets/lib/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js"></script>
+  <script src="assets/lib/isotope/dist/isotope.pkgd.js"></script>
+  <script src="assets/lib/imagesloaded/imagesloaded.pkgd.js"></script>
+  <script src="assets/lib/flexslider/jquery.flexslider.js"></script>
+  <script src="assets/lib/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="assets/lib/smoothscroll.js"></script>
+  <script src="assets/lib/magnific-popup/dist/jquery.magnific-popup.js"></script>
+  <script src="assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
+  <script async="" defer=""
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDK2Axt8xiFYMBMDwwG1XzBQvEbYpzCvFU"></script>
+  <script src="assets/js/plugins.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script src="assets/js/FrontEnd/menu.js"></script>
+</body>
+
+</html>
