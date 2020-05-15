@@ -10,7 +10,7 @@ let pago = {
 
 let allProducts = new Promise(function (res, rej) { //Manda llamar a todos los productos
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://localhost:3000/pedido');
+    xhr.open('GET', '/pedido');
     //xhr.setRequestHeader("", "");
     xhr.send();
     xhr.onload = function () {
@@ -85,7 +85,7 @@ document.querySelector('#delete').addEventListener("click", ()=>{
 
 function delProd(del){
     let xhr = new XMLHttpRequest();
-    xhr.open('DELETE', `http://localhost:3000/pedido/${del}`);
+    xhr.open('DELETE', `/pedido/${del}`);
     //xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send();
     xhr.onload = function () {

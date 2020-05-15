@@ -2,9 +2,9 @@ let allProducts = new Promise((res, rej) => { //Manda llamar a todos los product
 
     let xhr = new XMLHttpRequest();
     if(localStorage.page){
-        xhr.open('GET', `http://localhost:3000/api/products?page=${localStorage.page}`, true);
+        xhr.open('GET', `/api/products?page=${localStorage.page}`, true);
     }else{
-        xhr.open('GET', `http://localhost:3000/api/products`, true);
+        xhr.open('GET', `/api/products`, true);
     }
     //xhr.setRequestHeader("", "");
     xhr.send();
@@ -339,7 +339,7 @@ function ValidateDelete(id) {
 
 function Delete(id) {
     let xhr = new XMLHttpRequest();
-    xhr.open('PATCH', `http://localhost:3000/products/${id}`, true);
+    xhr.open('PATCH', `/products/${id}`, true);
     xhr.setRequestHeader('Content-Type', 'application/json')
     //xhr.setRequestHeader('x-auth', `${localStorage.token}`)
     //xhr.setRequestHeader('x-user-token', `${localStorage.uToken}`);
@@ -380,7 +380,7 @@ function ValidateEnabled(id) {
 
 function Disabled(id) {
     let xhr = new XMLHttpRequest();
-    xhr.open('PATCH', `http://localhost:3000/products/${id}`, true);
+    xhr.open('PATCH', `/products/${id}`, true);
     xhr.setRequestHeader('Content-Type', 'application/json')
     //xhr.setRequestHeader('x-auth', `${localStorage.token}`)
     //xhr.setRequestHeader('x-user-token', `${localStorage.uToken}`);
@@ -397,7 +397,7 @@ function Disabled(id) {
 
 function Enabled(id) {
     let xhr = new XMLHttpRequest();
-    xhr.open('PATCH', `http://localhost:3000/products/${id}`, true);
+    xhr.open('PATCH', `/products/${id}`, true);
     xhr.setRequestHeader('Content-Type', 'application/json')
     //xhr.setRequestHeader('x-auth', `${localStorage.token}`)
     //xhr.setRequestHeader('x-user-token', `${localStorage.uToken}`);
@@ -424,7 +424,7 @@ function GetProductDataEdit(id) {
     const edit_product = new Promise((res, rej) => {
         let product_edit = []
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', `http://localhost:3000/api/products/${id}`, true)
+        xhr.open('GET', `/api/products/${id}`, true)
         //xhr.setRequestHeader('x-auth', `${localStorage.token}`)
         //xhr.setRequestHeader('x-user-token', `${localStorage.uToken}`)
         xhr.send();
@@ -505,7 +505,7 @@ function GetProductDataEdit(id) {
     //Funcion PUT para la actualizacion de un usuario 
     function ProductEdit(product_obj, i){
         let xhr = new XMLHttpRequest()
-        xhr.open('PUT', `http://localhost:3000/api/products/${i}`, true)
+        xhr.open('PUT', `/api/products/${i}`, true)
         xhr.setRequestHeader('Content-Type', 'application/json')
         //xhr.setRequestHeader('x-auth', `${localStorage.token}`)
         //xhr.setRequestHeader('x-user-token', `${localStorage.uToken}`)
@@ -564,7 +564,7 @@ function GetProductDataEdit(id) {
      //Funcion PUT para la actualizacion de un usuario 
      function ProductNew(product_obj){
         let xhr = new XMLHttpRequest()
-        xhr.open('POST', `http://localhost:3000/products`, true)
+        xhr.open('POST', `/products`, true)
         xhr.setRequestHeader('Content-Type', 'application/json')
         //xhr.setRequestHeader('x-auth', `${localStorage.token}`)
         //xhr.setRequestHeader('x-user-token', `${localStorage.uToken}`)

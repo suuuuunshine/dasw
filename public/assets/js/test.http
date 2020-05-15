@@ -1,24 +1,24 @@
-# # GET http://localhost:3000/products/7
+# # GET /products/7
 
 # # ###
-# # GET http://localhost:3000/product?id_pt=4
-
-
-# # ###
-# # GET http://localhost:3000/usuarios/?correo=c@c.com
+# # GET /product?id_pt=4
 
 
 # # ###
-# # GET http://localhost:3000/products/1
+# # GET /usuarios/?correo=c@c.com
+
 
 # # ###
-# # PUT http://localhost:3000/products/4
+# # GET /products/1
+
+# # ###
+# # PUT /products/4
 # # Content-Type: application/json
 
 # # {"tipo":"hotdogggg","imagen":"HotdogCouple.jpg","id":"4","hidden":0,"deleted":0}
 
 # # ###
-# # GET http://localhost:3000/usuarios
+# # GET /usuarios
 # # Content-Type: application/json
 
 # # {
@@ -27,7 +27,7 @@
 # # }
 
 # ##
-# POST http://localhost:3000/api/register
+# POST /api/register
 # Content-Type: application/json
 
 # {
@@ -40,18 +40,18 @@
 # }
 
 # ###
-# GET http://localhost:3000/product/17
+# GET /product/17
 
 
 # ###
-# PATCH http://localhost:3000/product/22
+# PATCH /product/22
 # Content-Type: application/json
 
 # {
 #     "hidden": 1
 # }
 # ##
-# GET http://localhost:3000/usuarios/?correo=sol@sol.com
+# GET /usuarios/?correo=sol@sol.com
 # Content-Type: application/json
 
 # {
@@ -61,13 +61,13 @@
 
 
 # ##
-# GET http://localhost:3000/usuario/  
+# GET /usuario/  
 # Content-Type: application/json
 
 
 
 # ##
-# POST http://localhost:3000/api/product
+# POST /api/product
 # Content-Type: application/json
 
 # {
@@ -82,7 +82,7 @@
 # }
 
 # ##
-# POST http://localhost:3000/api/category
+# POST /api/category
 # Content-Type: application/json
 
 # {
@@ -94,7 +94,7 @@
 
 
 ##
-# POST http://localhost:3000/api/cart
+# POST /api/cart
 # Content-Type: application/json
 
 # {
@@ -104,25 +104,25 @@
 # }
 
 # ##
-# GET http://localhost:3000/api/cart/1
+# GET /api/cart/1
 # Content-Type: application/json
 
 ##
-# GET http://localhost:3000/api/pedidos
+# GET /api/pedidos
 # Content-Type: application/json
 
 ##
-POST http://localhost:3000/api/pedido
+POST /api/pedido
 Content-Type: application/json
 
 
 
 ###
-GET http://localhost:3000/api/category
+GET /api/category
 
 
 ###
-POST http://localhost:3000/api/category
+POST /api/category
 Content-Type: application/json
 
 {
@@ -135,7 +135,7 @@ Content-Type: application/json
 
 
 ###
-PATCH  http://localhost:3000/api/category/1
+PATCH  /api/category/1
 Content-Type: application/json
 
 {
@@ -144,5 +144,5 @@ Content-Type: application/json
 
 
 ###
-GET http://localhost:3000/api/category/1
+GET /api/category/1
 Content-Type: application/json

@@ -99,7 +99,7 @@ function updateUser(event) {
 
   
   let xhr = new XMLHttpRequest();
-  xhr.open("PATCH", "http://localhost:3000/api/user");
+  xhr.open("PATCH", "/api/user");
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.send(formData.id, formData);
   xhr.onload = function () {
@@ -117,7 +117,7 @@ function updateUser(event) {
 
 const getPedidos = new Promise(function (res, rej) { 
   let xhr = new XMLHttpRequest();
-  xhr.open('GET', `http://localhost:3000/api/pedidos/${user._id}`);
+  xhr.open('GET', `/api/pedidos/${user._id}`);
   xhr.send();
   xhr.onload = function () {
       if (xhr.status != 200) {

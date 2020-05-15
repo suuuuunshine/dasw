@@ -28,9 +28,9 @@ let allProducts = new Promise(function (res, rej) { //Manda llamar a todos los p
     // DEJO COMENTADO EL QUE ESTABA ANTES POR SI FALLA EL FIND AND REPLACE
     // PRODUCTTYPES AHORA ES PRODUCT
     // PRODUCT AHORA ES CATEGORY
-    // xhr.open('GET', `http://localhost:3000/api/producttype?tipo=${localStorage.ventanaID}`);
+    // xhr.open('GET', `/api/producttype?tipo=${localStorage.ventanaID}`);
 
-    xhr.open('GET', `http://localhost:3000/api/product?tipo=${localStorage.ventanaID}`);
+    xhr.open('GET', `/api/product?tipo=${localStorage.ventanaID}`);
     //xhr.setRequestHeader("", "");
     xhr.send();
     xhr.onload = function () {
@@ -193,7 +193,7 @@ function Stars(num) {
 
 function addProd(obj) {
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:3000/api/pedido", true);
+    xhr.open("POST", "/api/pedido", true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(obj);
     xhr.onload = function (e) {
@@ -427,8 +427,8 @@ function Delete(id) {
     // DEJO COMENTADO EL QUE ESTABA ANTES POR SI FALLA EL FIND AND REPLACE
     // PRODUCTTYPES AHORA ES PRODUCT
     // PRODUCT AHORA ES CATEGORY
-    // xhr.open('PATCH', `http://localhost:3000/producttype/${id}`, true);
-    xhr.open('PATCH', `http://localhost:3000/product/${id}`, true);
+    // xhr.open('PATCH', `/producttype/${id}`, true);
+    xhr.open('PATCH', `/product/${id}`, true);
     xhr.setRequestHeader('Content-Type', 'application/json')
     //xhr.setRequestHeader('x-auth', `${localStorage.token}`)
     //xhr.setRequestHeader('x-user-token', `${localStorage.uToken}`);
@@ -472,8 +472,8 @@ function Disabled(id) {
     // DEJO COMENTADO EL QUE ESTABA ANTES POR SI FALLA EL FIND AND REPLACE
     // PRODUCTTYPES AHORA ES PRODUCT
     // PRODUCT AHORA ES CATEGORY
-    // xhr.open('PATCH', `http://localhost:3000/producttype/${id}`, true);
-    xhr.open('PATCH', `http://localhost:3000/product/${id}`, true);
+    // xhr.open('PATCH', `/producttype/${id}`, true);
+    xhr.open('PATCH', `/product/${id}`, true);
     xhr.setRequestHeader('Content-Type', 'application/json')
     //xhr.setRequestHeader('x-auth', `${localStorage.token}`)
     //xhr.setRequestHeader('x-user-token', `${localStorage.uToken}`);
@@ -493,8 +493,8 @@ function Enabled(id) {
     // DEJO COMENTADO EL QUE ESTABA ANTES POR SI FALLA EL FIND AND REPLACE
     // PRODUCTTYPES AHORA ES PRODUCT
     // PRODUCT AHORA ES CATEGORY
-    // xhr.open('PATCH', `http://localhost:3000/producttype/${id}`, true);
-    xhr.open('PATCH', `http://localhost:3000/product/${id}`, true);
+    // xhr.open('PATCH', `/producttype/${id}`, true);
+    xhr.open('PATCH', `/product/${id}`, true);
     xhr.setRequestHeader('Content-Type', 'application/json')
     //xhr.setRequestHeader('x-auth', `${localStorage.token}`)
     //xhr.setRequestHeader('x-user-token', `${localStorage.uToken}`);
@@ -524,8 +524,8 @@ function GetProductTypeDataEdit(id) {
         // DEJO COMENTADO EL QUE ESTABA ANTES POR SI FALLA EL FIND AND REPLACE
         // PRODUCTTYPES AHORA ES PRODUCT
         // PRODUCT AHORA ES CATEGORY
-        // xhr.open('GET', `http://localhost:3000/producttype/${id}`, true)
-        xhr.open('GET', `http://localhost:3000/product/${id}`, true)
+        // xhr.open('GET', `/producttype/${id}`, true)
+        xhr.open('GET', `/product/${id}`, true)
         //xhr.setRequestHeader('x-auth', `${localStorage.token}`)
         //xhr.setRequestHeader('x-user-token', `${localStorage.uToken}`)
         xhr.send();
@@ -560,8 +560,8 @@ function GetProductTypeDataEdit(id) {
 function GetProductDataEdit(product) {
     const edit_product = new Promise((res, rej) => {
         let xhr = new XMLHttpRequest();
-        // xhr.open('GET', `http://localhost:3000/products/${producttype.producto}`, true)
-        xhr.open('GET', `http://localhost:3000/products/${product.producto}`, true)
+        // xhr.open('GET', `/products/${producttype.producto}`, true)
+        xhr.open('GET', `/products/${product.producto}`, true)
         //xhr.setRequestHeader('x-auth', `${localStorage.token}`)
         //xhr.setRequestHeader('x-user-token', `${localStorage.uToken}`)
         xhr.send();
@@ -663,8 +663,8 @@ function GetProductDataEdit(product) {
     // DEJO COMENTADO EL QUE ESTABA ANTES POR SI FALLA EL FIND AND REPLACE
     // PRODUCTTYPES AHORA ES PRODUCT
     // PRODUCT AHORA ES CATEGORY
-    // xhr.open('PUT', `http://localhost:3000/producttype/${i}`, true)
-        xhr.open('PUT', `http://localhost:3000/product/${i}`, true)
+    // xhr.open('PUT', `/producttype/${i}`, true)
+        xhr.open('PUT', `/product/${i}`, true)
         xhr.setRequestHeader('Content-Type', 'application/json')
         //xhr.setRequestHeader('x-auth', `${localStorage.token}`)
         //xhr.setRequestHeader('x-user-token', `${localStorage.uToken}`)
@@ -726,8 +726,8 @@ function GetProductDataEdit(product) {
     // DEJO COMENTADO EL QUE ESTABA ANTES POR SI FALLA EL FIND AND REPLACE
     // PRODUCTTYPES AHORA ES PRODUCT
     // PRODUCT AHORA ES CATEGORY
-        // xhr.open('POST', `http://localhost:3000/producttype`, true)
-        xhr.open('POST', `http://localhost:3000/product`, true)
+        // xhr.open('POST', `/producttype`, true)
+        xhr.open('POST', `/product`, true)
         xhr.setRequestHeader('Content-Type', 'application/json')
         //xhr.setRequestHeader('x-auth', `${localStorage.token}`)
         //xhr.setRequestHeader('x-user-token', `${localStorage.uToken}`)

@@ -1,7 +1,7 @@
 
 const getPedidos = new Promise(function (res, rej) { 
   let xhr = new XMLHttpRequest();
-  xhr.open('GET', 'http://localhost:3000/api/pedidos');
+  xhr.open('GET', '/api/pedidos');
   xhr.send();
   xhr.onload = function () {
       if (xhr.status != 200) {

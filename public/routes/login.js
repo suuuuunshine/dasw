@@ -55,7 +55,7 @@ function EnableLogin(event){
 
 function Login(login_obj, m){
     let xhr = new XMLHttpRequest()
-    xhr.open('POST', `http://localhost:3000/api/login`, true)
+    xhr.open('POST', `/api/login`, true)
     xhr.setRequestHeader('Content-Type', 'application/json')
     //xhr.setRequestHeader('auth', `${localStorage.token}`)
     xhr.send(login_obj)
@@ -122,7 +122,7 @@ function RegSubmit(event) {
   //Funcion POST para la creacion de un nuevo usuario 
   function NewUser(user_obj){
     let xhr = new XMLHttpRequest()
-    xhr.open('POST', 'http://localhost:3000/api/register', true)
+    xhr.open('POST', '/api/register', true)
     xhr.setRequestHeader('Content-Type', 'application/json')
     xhr.send(user_obj)
      
