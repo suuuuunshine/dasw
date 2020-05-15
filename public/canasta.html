@@ -53,10 +53,6 @@
   <!-- Main stylesheet and color file-->
   <link href="assets/css/style.css" rel="stylesheet">
   <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
-
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
@@ -84,129 +80,101 @@
 
             <li class="navbar-header" id="login_reg" ><a href="login_register.html">Inicio de Sesión / Registro</a></li>
             <li class="navbar-header" id="logout" ><a onclick="logout()">Logout</a></li>
+
           </ul>
         </div>
       </div>
     </nav>
-
     <div class="main">
-      <section class="module bg-dark-60"
-        style="background-image:url(&quot;assets/images/restaurant/slider1.jpg&quot;);">
-        <div>
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-6 col-sm-offset-3">
-                <h2 class="module-title font-alt">Comida a Domicilio</h2>
-                <h3 class="font-serif">El descubrimiento de un nuevo plato es de más provecho para la humanidad que el
-                  descubrimiento de una estrella.</h3>
-                <div class="module-subtitle font-serif">Jean Anthelme Brillat-Savarin</div>
-              </div>
+      <section class="module">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+              <h1 class="module-title font-alt">Canasta</h1>
             </div>
           </div>
-        </div>
-      </section>
-      <hr class="divider-w">
-      <section class="module-small">
-        <div class="container">
-          <div id="cont" class="row multi-columns-row">
-          </div>
-          <div>
-            <a class="waves-effect btn delete">Delete</a>
-            <a class="waves-effect btn disable">Hide</a>
-            <a class="waves-effect btn cancel">Cancel</a>
-          </div>
+          <hr class="divider-w pt-20">
           <div class="row">
             <div class="col-sm-12">
-              <div class="pagination font-alt">
-                  
+              <table class="table table-striped table-border checkout-table">
+                <tbody id="desglose">
+                  <tr>
+                    <th class="hidden-xs">Item</th>
+                    <th>Descripcion</th>
+                    <th class="hidden-xs">Precio</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                    <th>Quitar</th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <hr class="divider-w">
+          <div class="row mt-70">
+            <div class="col-sm-5 col-sm-offset-7">
+              <div class="shop-Cart-totalbox">
+                <h4 class="font-alt">Total de pedido</h4>
+                <table class="table table-striped table-border checkout-table">
+                  <tbody id="pago">
+                    <tr>
+                      <th>Subtotal :</th>
+                      <td id="subtotal"></td>
+                    </tr>
+                    <tr>
+                      <th>Envío :</th>
+                      <td id="envio"></td>
+                    </tr>
+                    <tr class="shop-Cart-totalprice">
+                      <th>
+                        <h4>Total :</h4>
+                      </th>
+                      <td id="total">
+                        <h4></h4>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button class="btn btn-lg btn-block btn-round btn-d" type="submit">Pagar</button>
               </div>
             </div>
           </div>
         </div>
       </section>
     </div>
-
-    <div class="fixed-action-btn">
-      <a class="btn-floating btn-large red">
-        <i class="large material-icons">settings</i>
-      </a>
-      <ul>
-        <li><a id="btn_delete" class="btn-floating red"><i class="material-icons">delete</i></a></li>
-        <li><a id="btn_hide" class="btn-floating orange darken-1"><i class="material-icons">visibility_off</i></a></li>
-        <li><a id="btn_edit" class="btn-floating blue"><i class="material-icons">edit</i></a></li>
-        <li><a id="btn_add" class="btn-floating green" data-toggle="modal" data-target="#newProduct"><i class="material-icons">add</i></a></li>
-        <!-- <li><a id="btn_add" class="btn-floating green"><i class="material-icons" data-toggle="modal" data-target="#newProduct">add</i></a></li> -->
-      </ul>
-    </div>
-
-    
-  </main>
-  <!-- Modal Edicion -->
-  <div class="modal fade" id="edicion" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Editar Producto</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form action="" id="edit" >
-              <div class="row">
-                  <div class="col-6">
-                    <input type="text" name="" id="tipo" class="form-control" placeholder="Tipo" aria-describedby="helpId" required>
-                  </div>
-                  <div class="col-6">
-                    <input type="text" name="" id="imagen" class="form-control" placeholder="Imagen" aria-describedby="helpId" required>
-                  </div>
-              </div>
-              <input type="text" name="" id="id" class="form-control mt-3" placeholder="Id" aria-describedby="helpId" required>
-              <button type="submit" class="btn btn-success mt-3" id="disabled" disabled = true >Guardar</button>
-              <button type="button" class="btn btn-secondary mt-3" data-dismiss="modal">Close</button>
-          </form>
+    <!-- Modal -->
+    <div class="modal fade" id="modalborrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button id="delete" type="button" class="btn btn-primary">Quitar de la canasta</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Modal Nuevo Producto -->
-   <div id="newProduct" class="modal">
-    <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Crear Producto</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body"></div>
-                    <form action="" id="newProd" >
-                        <div class="row">
-                            <div class="col-6">
-                            <input type="text" name="" id="newTipo" class="form-control" placeholder="Tipo" aria-describedby="helpId" required>
-                            </div>
-                            <br>
-                            <div class="col-6">
-                                <label type="button" class="btn btn-success mt-3" id="addPicture" for="addPictureBtn">Agregar Imagen</button>
-                                <input ref="inputFile" type="file" accept="image/*" name="addPictureBtn" id="addPictureBtn"
-                                onchange="handleInputFileChange(event)" />
-                            </div>
-                        </div>
-                        <hr class="divider" style="width: 100%; height: 5%;">
-                        <button type="submit" class="btn btn-success mt-3" id="disabledSave" disabled = true >Guardar</button>
-                        <button type="button" class="btn btn-secondary mt-3" data-dismiss="modal">Close</button>
-                    </form>
-                </div>
-    </div>
-  </div>
-  
+  </main>
   <!--  
     JavaScripts
     =============================================
     -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="assets/js/FrontEnd/logout.js"></script>
-  <script src="assets/js/FrontEnd/menu.js"></script>
+  <script src="./routes/canasta.js"></script>
+  <script>
+    //Oculta la pestaña de login en el menu_producto
+    if(localStorage.token != ''){
+        document.querySelector('#login_reg').remove()
+    }else{
+      document.querySelector('#logout').remove()
+    }
+  </script>
+  <script src="./routes/logout.js"></script>
   <script src="assets/lib/jquery/dist/jquery.js"></script>
   <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="assets/lib/wow/dist/wow.js"></script>
