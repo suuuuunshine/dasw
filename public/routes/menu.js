@@ -2,11 +2,11 @@ let allProducts = new Promise((res, rej) => { //Manda llamar a todos los product
 
     let xhr = new XMLHttpRequest();
     if(localStorage.page){
-        xhr.open('GET', `/api/products?page=${localStorage.page}`, true);
+        xhr.open('GET', `/api/category?page=${localStorage.page}`, true);
     }else{
-        xhr.open('GET', `/api/products`, true);
+        xhr.open('GET', `/api/category`, true);
     }
-    //xhr.setRequestHeader("", "");
+    
     xhr.send();
     xhr.onload = function () {
         if (xhr.status != 200) {
@@ -30,8 +30,8 @@ allProducts.then(function (data) { //Si la promesa se cumple llena un arreglo lo
 
     actualPage = data.pagina;
     numWindows = data.ventanas;
-    data.productos.forEach(prod => {
-        Products.push(prod);
+    data.productos.forEach(product => {
+        Products.push(product);
     });
     
     fullHTML(Products);
@@ -42,41 +42,37 @@ allProducts.then(function (data) { //Si la promesa se cumple llena un arreglo lo
 })
 
 
-function fullHTML(arr) {
-    let BreakException = {};
-    arr.forEach(e => {
-        if (e.deleted == 0) {
-            if (e.hidden == 1) {
-                hidden.push(e.id)
+function fullHTML(products) {
+    products.forEach(category => {
+        if (!category.deleted && !category.hidden) {
+            if (category.hidden) {
+                hidden.push(category._id)
             }
-            let strList = `
-            <div id=${e.id} class="shop-item col-sm-6 col-md-4 col-lg-4 ">
+            const HTML = `<div id="category_${category._id}" class="shop-item col-sm-6 col-md-4 col-lg-4 ">
             <p id="delete">
               <label>
-                <input id=${e.id} type="checkbox" />
+                <input id="delete_${category._id}" type="checkbox" />
                 <span>Delete</span>
               </label>
             </p>
-            <div id=${e.id} class="switch">
+            <div id="hide_${category._id}" class="switch">
               <label>
                 <span>Hide</span> <br>
                 Off
-                <input id=${e.id} type="checkbox">
+                <input id="hide_checkbox_${category._id}" type="checkbox">
                 <span class="lever"></span>
                 On
               </label>
             </div>
-            <a id=${e.id} class="waves-effect waves-light btn" data-toggle="modal" data-target="#edicion">Edit</a>
-              <div onclick="ldID(${e.id})" class="shop-item-image"><img src="assets/images/${e.imagen}" alt="${e.tipo}" />
+            <a id="edit_${category._id}" class="waves-effect waves-light btn" data-toggle="modal" data-target="#edicion">Edit</a>
+              <div onclick="verOpciones(${category._id})" class="shop-item-image"><img src="${category.imagen}" alt="${category.nombre}" />
                 <div class="shop-item-detail">
                   <a class="btn btn-round btn-b"><span>Ver opciones</span></a>
                 </div>
               </div>
-              <h4 class="shop-item-title font-alt">${e.tipo}</a></h4>
+              <h4 class="shop-item-title font-alt">${category.nombre}</a></h4>
           </div>`;
-            main.insertAdjacentHTML("beforeend", strList);
-        } else {
-            console.log("Si esta eliminado");
+            main.insertAdjacentHTML("beforeend", HTML);
         }
     }); 
 
@@ -103,7 +99,7 @@ function fullHTML(arr) {
     document.querySelector('div .pagination').innerHTML = str4pages;
 }
 
-function ldID(id) {
+function verOpciones(id) {
     localStorage.ventanaID = id;
     window.location.href = "./menu_producto.html"
 }
@@ -248,7 +244,7 @@ let hiddenCount = 0
 function hideElem() {
     for (const e of disbleButtons) {
         e.style.display = "block";
-        let found = hidden.find(element => element == e.id);
+        let found = hidden.find(element => element == e._id);
         if (found) {
             hiddenCount++
             e.getElementsByTagName("input")[0].setAttribute("checked", "checked")
@@ -292,7 +288,7 @@ function changeDisabled() {
 }
 //Abre un modal (?) para editar el elemento seleccionado
 function clickEdit(e) {
-    GetProductDataEdit(e.id)
+    GetProductDataEdit(e._id)
 }
 //Funcion para guardar los cambios cuando se tengan los elementos a eliminar
 function DeletedElems() {
@@ -304,7 +300,7 @@ function DisabledElems() {
     let checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
     let ckbx = []
     for (const e of checkboxes) {
-        ckbx.push(e.id)
+        ckbx.push(e._id)
     }
 //Elementos que pasaron de hidden a activos    
     let checkbox_changed = hidden.filter(e => !ckbx.includes(e))
@@ -332,7 +328,7 @@ function ValidateDelete(id) {
     if (r == true) {
         for (const e of id) {
 
-            Delete(e.id)
+            Delete(e._id)
         }
     }
 }
@@ -424,7 +420,7 @@ function GetProductDataEdit(id) {
     const edit_product = new Promise((res, rej) => {
         let product_edit = []
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', `/api/products/${id}`, true)
+        xhr.open('GET', `/api/category/${id}`, true)
         //xhr.setRequestHeader('x-auth', `${localStorage.token}`)
         //xhr.setRequestHeader('x-user-token', `${localStorage.uToken}`)
         xhr.send();
@@ -452,10 +448,10 @@ function GetProductDataEdit(id) {
         usr_data_edit.map(function(key, i){
             let tipo = key.tipo;
             let imagen = key.imagen
-            let id = key.id
+            let id = key._id
             let modal_inputs = document.getElementById("edicion").getElementsByTagName("input")
             for (let item of modal_inputs) {
-                switch(item.id) {
+                switch(item._id) {
                         case "tipo":
                         item.value = tipo
                         break;
@@ -505,7 +501,7 @@ function GetProductDataEdit(id) {
     //Funcion PUT para la actualizacion de un usuario 
     function ProductEdit(product_obj, i){
         let xhr = new XMLHttpRequest()
-        xhr.open('PUT', `/api/products/${i}`, true)
+        xhr.open('PUT', `/api/category/${i}`, true)
         xhr.setRequestHeader('Content-Type', 'application/json')
         //xhr.setRequestHeader('x-auth', `${localStorage.token}`)
         //xhr.setRequestHeader('x-user-token', `${localStorage.uToken}`)
@@ -550,8 +546,8 @@ function GetProductDataEdit(id) {
         if(product_obj.imagen == undefined){
             product_obj.imagen = "BurritoArroz.jpg"
         }
-        if(product_obj.id == ""){
-            product_obj.id = Math.floor(Math.random() * 100); 
+        if(product_obj._id == ""){
+            product_obj._id = Math.floor(Math.random() * 100); 
         }
         product_obj.deleted = 0
         product_obj.hidden = 0

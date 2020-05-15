@@ -1,10 +1,6 @@
 const mongoose = require('mongoose')
 
 let productSchema = mongoose.Schema({
-    id:{
-        type: Number,
-        required: true
-    },
     nombre:{
         type: String,
         required: true
@@ -36,6 +32,10 @@ let productSchema = mongoose.Schema({
     deleted:{
         type: Boolean,
         required: true
+    },
+    cantidad:{
+        type: Number,
+        required: false
     }
 })
 

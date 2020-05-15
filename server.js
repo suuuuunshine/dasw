@@ -177,6 +177,20 @@ app.post('/api/category', function (req, res) {
 //TODO RENOMBRAR PRODUCTTYPE POR CATEGORY
 
 // post para crear un producto nuevo
+
+//// TRAE TODOS LOS PRODUCTOS DE UNA CATEGORIA
+app.get('api/:id/products/', function(req, res){
+    console.warn(req.params)
+    res.send('api/' + req.params.id + '/products')
+        Product.find({category: req.params.id})
+        .then((results)=>{
+            return res.status(200).json(results)
+        }).catch(err => {
+            console.log(err)
+            return res.status(400).json(err)
+        })
+})
+
 app.post('/api/product', function (req, res ) {
     const model = new Product(req.body)
     model.save()

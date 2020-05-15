@@ -200,18 +200,17 @@
       "deleted": false
     },
     {
-      "nombre": "Chicken Burger",
+      "nombre": "Hamburguesa de Pollo",
       "calificacion": 5,
       "precio": 90,
       "descripcion": "Al clásico sabor del pollo crujiente con lechuga fresca picada, jitomate, una capa de mayonesa cremosa, servida sobre un pan suave, le agregamos todo lo rico del chipotle, aros de cebolla, salsa BBQ Hot Spicy, tocino rebanado y queso monterrey. ¡Tienes que probarla!",
       "imagen": "BurgerChicken.jpg",
-      "producto": 5,
-      
-      "hidden": 0,
+      "category" : "5ebe34fca090dee580829706",
+      "hidden": false,
       "deleted": false
     },
     {
-      "nombre": "Double Cheese Burger",
+      "nombre": "Hamburguesa Double Cheese",
       "calificacion": 5,
       "precio": 120,
       "descripcion": "Cuenta con dos carnes a la parrilla, dos rebanada de queso amarillo, lechuga fresca, cebolla crujiente, pepinillos y salsa agridulce con tres rebanadas de pan suave con ajonjolí.",
@@ -222,7 +221,7 @@
       "deleted": false
     },
     {
-      "nombre": "Caramel-Onion Burger",
+      "nombre": "Hamburguesa Caramel-Onion",
       "calificacion": 5,
       "precio": 100,
       "descripcion": "Todo lo que quieres dentro de una hamburguesa y mas. Con carne a la parrilla, queso manchego derretido, cebolla carmelizada crujiente, mayonesa y un toque de salsa BBQ.",
