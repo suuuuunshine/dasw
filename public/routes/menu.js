@@ -105,7 +105,7 @@ function fullHTML(arr) {
 
 function ldID(id) {
     localStorage.ventanaID = id;
-    window.location.href = "/menu_producto.html"
+    window.location.href = "./menu_producto.html"
 }
 
 function changePage(page){

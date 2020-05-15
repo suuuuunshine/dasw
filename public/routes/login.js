@@ -12,8 +12,8 @@ let log_mail = document.querySelector('#l_email')
 
 //Se agrega un event listener a los botones para validar los campos
 log_button.addEventListener('click', RegLogin)
-log_mail.addEventListener('change', EnableLogin)
-log_pass.addEventListener('change', EnableLogin)
+log_mail.addEventListener('keyUp', EnableLogin)
+log_pass.addEventListener('keyUp', EnableLogin)
 
 //Se deshabilitan los botos de registro y login
 log_button.disabled = true;
