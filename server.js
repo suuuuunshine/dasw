@@ -1,12 +1,12 @@
 'use strict'
-const PastOrder = require('./Models/PastOrder.Model')
-const User = require('./Models/User.Model')
-const Cart = require('./Models/Cart.Model')
-const Product = require('./Models/Product.Model')
-const Category = require('./Models/Category.Model')
-const {connect, mongoose } = require('./mongodb-connect')
+const PastOrder = require('./db/Models/PastOrder.Model')
+const User = require('./db/Models/User.Model')
+const Cart = require('./db/Models/Cart.Model')
+const Product = require('./db/Models/Product.Model')
+const Category = require('./db/Models/Category.Model')
+const {connect, mongoose } = require('./db/mongodb-connect')
 
-const createToken = require('../services/token');
+const createToken = require('./public/assets/services/token');
 const jwt = require('jwt-simple');
 const moment = require('moment');
 

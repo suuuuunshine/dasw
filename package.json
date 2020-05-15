@@ -2,7 +2,7 @@
   "name": "food-project",
   "version": "1.0.0",
   "description": "iteso project",
-  "main": "main.js",
+  "main": "server.js",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "fs": "0.0.1-security",
@@ -18,8 +18,8 @@
     "nodemon": "^2.0.3"
   },
   "scripts": {
-    "start": "nodemon ./server.js",
-    "dev": "node ./server.js"
+    "start": "nodemon server.js",
+    "dev": "node server.js"
   },
   "engines": {"node": "11.14.0"},
   "author": "Sol, Adrian, Luis",
