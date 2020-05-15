@@ -1,141 +1,140 @@
-# # GET /products/7
+GET http://localhost:3000/api/products/
 
-# # ###
-# # GET /product?id_pt=4
-
-
-# # ###
-# # GET /usuarios/?correo=c@c.com
+###
+GET http://localhost:3000/api/product?id_pt=4
 
 
-# # ###
-# # GET /products/1
-
-# # ###
-# # PUT /products/4
-# # Content-Type: application/json
-
-# # {"tipo":"hotdogggg","imagen":"HotdogCouple.jpg","id":"4","hidden":0,"deleted":0}
-
-# # ###
-# # GET /usuarios
-# # Content-Type: application/json
-
-# # {
-# #     "correo": "c@c.com",
-# #     "password": "123"
-# # }
-
-# ##
-# POST /api/register
-# Content-Type: application/json
-
-# {
-#     "nombre": "Luis",
-#     "apellido": "Rodriguez",
-#     "correo": "a@a.com",
-#     "password": "pass",
-#     "telefono": null,
-#     "id": 1
-# }
-
-# ###
-# GET /product/17
+###
+GET http://localhost:3000/api/usuarios/?correo=c@c.com
 
 
-# ###
-# PATCH /product/22
-# Content-Type: application/json
+###
+GET http://localhost:3000/api/5ebe34fca090dee580829706/products/
 
-# {
-#     "hidden": 1
-# }
-# ##
-# GET /usuarios/?correo=sol@sol.com
-# Content-Type: application/json
-
-# {
-#     "correo": "sol@sol.com",
-#     "pass": "sol"
-# }
-
-
-# ##
-# GET /usuario/  
-# Content-Type: application/json
-
-
-
-# ##
-# POST /api/product
-# Content-Type: application/json
-
-# {
-#     "nombre" : "Hamburguesa de Queso",
-#     "calificacion" : 5,
-#     "precio" : 70,
-#     "descripcion" : "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
-#     "imagen" : "assets/images/BurgerDoubleCheese.jpg",
-#     "category" : "5ebb62a59e6c7e436831d0d1",
-#     "hidden" : false,
-#     "deleted" : false
-# }
-
-# ##
-# POST /api/category
-# Content-Type: application/json
-
-# {
-#     "tipo": "Hamburguesas",
-#     "imagen": "assets/images/BurgerChicken.jpg",
-#     "hidden": false,
-#     "deleted": false
-# }
-
-
-##
-# POST /api/cart
-# Content-Type: application/json
-
-# {
-#     "user_id": 1,
-#     "productos": ["5ebb63f7e92a31602b777ffa"],
-#     "total": 189
-# }
-
-# ##
-# GET /api/cart/1
-# Content-Type: application/json
-
-##
-# GET /api/pedidos
-# Content-Type: application/json
-
-##
-POST /api/pedido
+###
+PUT http://localhost:3000/api/products/4
 Content-Type: application/json
 
-
-
-###
-GET /api/category
-
+{"tipo":"hotdogggg","imagen":"HotdogCouple.jpg","id":"4","hidden":0,"deleted":0}
 
 ###
-POST /api/category
+GET http://localhost:3000/api/usuarios
 Content-Type: application/json
 
 {
-    "id": "2",
+    "correo": "c@c.com",
+    "password": "123"
+}
+
+##
+POST http://localhost:3000/api/register
+Content-Type: application/json
+
+{
+    "nombre": "Luis",
+    "apellido": "Rodriguez",
+    "correo": "a@a.com",
+    "password": "pass",
+    "telefono": null,
+    "id": 1
+}
+
+###
+GET http://localhost:3000/api/product/17
+
+
+###
+PATCH http://localhost:3000/api/product/22
+Content-Type: application/json
+
+{
+    "hidden": 1
+}
+##
+GET http://localhost:3000/api/usuarios/?correo=sol@sol.com
+Content-Type: application/json
+
+{
+    "correo": "sol@sol.com",
+    "pass": "sol"
+}
+
+
+##
+GET http://localhost:3000/api/usuario/  
+Content-Type: application/json
+
+
+
+###
+POST http://localhost:3000/api/product
+Content-Type: application/json
+
+{
+      "nombre": "Hamburguesa de Pollo",
+      "calificacion": 5,
+      "precio": 90,
+      "descripcion": "Al clásico sabor del pollo crujiente con lechuga fresca picada, jitomate, una capa de mayonesa cremosa, servida sobre un pan suave, le agregamos todo lo rico del chipotle, aros de cebolla, salsa BBQ Hot Spicy, tocino rebanado y queso monterrey. ¡Tienes que probarla!",
+      "imagen": "BurgerChicken.jpg",
+      "category" : "5ebe34fca090dee580829706",
+      "hidden": false,
+      "deleted": false
+}
+
+###
+POST http://localhost:3000/api/category
+Content-Type: application/json
+
+    {
+      "nombre": "Bebidas",
+      "imagen": "public/assets/images/Soda.jpg",
+      "hidden": false,
+      "deleted": false
+    }
+
+
+#
+POST http://localhost:3000/api/cart
+Content-Type: application/json
+
+{
+    "user_id": 1,
+    "productos": ["5ebb63f7e92a31602b777ffa"],
+    "total": 189
+}
+
+##
+GET http://localhost:3000/api/cart/1
+Content-Type: application/json
+
+#
+GET http://localhost:3000/api/pedidos
+Content-Type: application/json
+
+##
+POST http://localhost:3000/api/pedido
+Content-Type: application/json
+
+
+
+###
+GET http://localhost:3000/api/category
+
+
+###
+POST http://localhost:3000/api/category
+Content-Type: application/json
+
+{
     "tipo": "Pizza",
-    "imagen": "assets/images/pizza.jpg",
+    "imagen": "public/assets/images/pizza.jpg",
     "hidden": true,
     "deleted": false
 }
 
 
 ###
-PATCH  /api/category/1
+PATCH  http://localhost:3000/api/category/1
 Content-Type: application/json
 
 {
@@ -144,5 +143,5 @@ Content-Type: application/json
 
 
 ###
-GET /api/category/1
+GET http://localhost:3000/api/category/1
 Content-Type: application/json
