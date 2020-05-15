@@ -1,11 +1,7 @@
 const mongoose = require('mongoose')
 
 let categorySchema = mongoose.Schema({
-    id:{
-        type: Number,
-        required: true
-    },
-    tipo:{
+    nombre:{
         type: String,
         required: true
     },
@@ -23,4 +19,4 @@ let categorySchema = mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('categories', categorySchema);
+module.exports = mongoose.model('Category', categorySchema);

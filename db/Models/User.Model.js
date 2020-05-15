@@ -2,11 +2,6 @@ const mongoose = require('mongoose')
 let mongooseEmail = require('mongoose-type-email');
 
 let userSchema = mongoose.Schema({
-    id:{
-        type: Number,
-        required: true,
-        unique: true
-    },
     nombre:{
         type: String,
         required: true,
@@ -37,7 +32,7 @@ let userSchema = mongoose.Schema({
         required: false,
     },
     admin:{
-        type: Number,
+        type: Boolean,
         required: false,
     }
 })
