@@ -12,8 +12,8 @@ let log_mail = document.querySelector('#l_email')
 
 //Se agrega un event listener a los botones para validar los campos
 log_button.addEventListener('click', RegLogin)
-log_mail.addEventListener('keyUp', EnableLogin)
-log_pass.addEventListener('keyUp', EnableLogin)
+log_mail.addEventListener('keyup', EnableLogin)
+log_pass.addEventListener('keyup', EnableLogin)
 
 //Se deshabilitan los botos de registro y login
 log_button.disabled = true;
@@ -30,8 +30,9 @@ function EnableLogin(event){
     if(log_mail.value != "" && log_pass.value != ""){  
         log_button.disabled = false;
         }
-    else
+    else{
         log_button.disabled = true;
+    }
 }
 
 
@@ -80,7 +81,7 @@ function Login(login_obj, m){
 *********************************************************************/
 
 ///Event listener para los campos dentro del formulario de regristo
-form_register.addEventListener("change", function (e) {
+form_register.addEventListener('keyup', function (e) {
     if(form_register.querySelectorAll(':invalid').length != 0){
         document.getElementById("register_button").disabled = true;
     }else{
@@ -88,7 +89,7 @@ form_register.addEventListener("change", function (e) {
             document.getElementById("register_button").disabled = false;
         }
         else if(form_register.pass1.value != "" && form_register.pass2.value != "" ){
-            alert("Las contraseñas no coinciden");
+            document.getElementById("register_button").disabled = true;
         }
     }
   });
@@ -130,10 +131,8 @@ function RegSubmit(event) {
         if(xhr.status != 200) {
             alert(xhr.status + ': ' + xhr.statusText)
         }else{
-            alert('Usuario creado con exito')
-            console.log(xhr.response);
+            alert('Usuario creado con exito, por favor inicia sesión')
             localStorage.setItem('token', JSON.parse(xhr.responseText).token)
-            window.location.href = './menu.html'
         }   
     }
 }
