@@ -66,7 +66,7 @@ function fullHTML(arr) {
 }
 
 function sndN(name, quant, img, id) {
-    document.querySelector('.modal-body').innerHTML = `<img src="assets/images/${img}" alt="${name}"><h4>¿Seguro que deseas borrar ${quant} ${name} de tu canasta?</h4>`;
+    document.querySelector('.modal-body').innerHTML = `<img src="assets/images/${img}" alt="${name}"><h4>¿Seguro que deseas borrar ${quant} ${name} de tu carrito?</h4>`;
     deleted = id;
     console.log(deleted);
 }

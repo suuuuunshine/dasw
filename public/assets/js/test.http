@@ -86,25 +86,25 @@ POST http://localhost:3000/api/categories
 Content-Type: application/json
 
     {
-           "nombre": "Sándwiches",
+    "nombre": "Sándwiches",
       "imagen": "public/assets/images/club-sandwich.jpg",
       "hidden": false,
       "deleted": false
     }
 
 
-#
-POST http://localhost:3000/api/cart
+###
+POST http://localhost:3000/api/carts
 Content-Type: application/json
 
 {
-    "user_id": 1,
+    "user_id": "5ebf73eb51c8ead51a05a855",
     "productos": ["5ebb63f7e92a31602b777ffa"],
     "total": 189
 }
 
 ##
-GET http://localhost:3000/api/cart/1
+GET http://localhost:3000/api/carts/1
 Content-Type: application/json
 
 #

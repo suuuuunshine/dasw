@@ -257,7 +257,7 @@ app.get('/api/pedidos', (req, res) => {
         res.status(200).send(pedido)
     } else {
         res.status(400).send({
-            error: "Canasta vacía"
+            error: "Carrito vacío"
         })
     }
 })
@@ -297,7 +297,7 @@ app.delete('/api/pedidos/:id', (req, res) => {
 
 // TODO 
 // FUNCION PARA ACTUALIZAR CARRITO
-app.put('/api/cart/:userId', function (req, res) {
+app.put('/api/carts/:userId', function (req, res) {
     const cart = Cart.findOne({
         user_id: req.params.userId
     })
@@ -306,7 +306,7 @@ app.put('/api/cart/:userId', function (req, res) {
 
 /* CARRITO CON POPULATE QUE SÍ SIRVE */
 
-app.get("/api/cart/:userId", function (req, res) {
+app.get("/api/carts/:userId", function (req, res) {
     
     const userId = req.params.userId
     
@@ -323,19 +323,6 @@ app.get("/api/cart/:userId", function (req, res) {
         
 })
 
-//crear carrito nuevo
-app.post('/api/cart', function (req, res, next) {
-    const body = req.body
-    const model = new Cart({
-        user_id: body.user_id,
-        productos: body.productos,
-        total: body.total
-    })
-
-    model.save().then((result) => {
-        console.log(result)
-    })
-})
 
 
 //TRAER PEDIDO POR ID DE USUARIO
@@ -344,6 +331,19 @@ app.get('/api/pedidos/:id', (req, res) => {
     .populate('products user')
     .then((results)=>{
         return res.status(200).json(results)
+    }).catch(err => {
+        console.log(err)
+        return res.status(400).json(err)
+    })
+})
+
+
+//crear carrito nuevo
+app.post('/api/carts', function (req, res, next) {
+    const model = new Cart(req.body)
+    model.save()
+    .then((result) => {
+        return res.status(200).json(result)
     }).catch(err => {
         console.log(err)
         return res.status(400).json(err)
@@ -388,14 +388,14 @@ app.post("/api/login", requireJsonContent(), (req, res) =>{
                 token: `${token}`, 
                 admin: `${docs.admin}`, 
                 user: {
-                nombre: `${docs.nombre}`,
-                apellido: `${docs.apellido}`,
-                correo: `${docs.correo}`,
-                telefono: `${docs.telefono}`,
-                imagen: `${docs.imagen}`,
-                descripcion: `${docs.descripcion}`,
-                id: `${docs._id}`,
-                _id: `${docs._id}`
+                    nombre: `${docs.nombre}`,
+                    apellido: `${docs.apellido}`,
+                    correo: `${docs.correo}`,
+                    telefono: `${docs.telefono}`,
+                    imagen: `${docs.imagen}`,
+                    descripcion: `${docs.descripcion}`,
+                    id: `${docs._id}`,
+                    _id: `${docs._id}`
                 },
                 id: `${docs.id}`
             })

@@ -9,7 +9,7 @@
     Document Title
     =============================================
     -->
-  <title>Comida a Domicilio</title>
+  <title>Comida a domicilio</title>
   <!--  
     Favicons
     =============================================
@@ -70,7 +70,7 @@
             
             <li class="navbar-header"><a href="menu.html">Menu</a></li>
 
-            <li class="navbar-header"><a href="canasta.html">Canasta</a></li>
+            <li class="navbar-header"><a href="carrito.html">Carrito</a></li>
 
             <li class="navbar-header"><a href="perfil.html">Perfil</a></li>
 
@@ -82,6 +82,7 @@
         </div>
       </div>
     </nav>
+    
         <div class="main">
             <section class="module">
                 <div id="ProductInfo" class="container">
@@ -207,6 +208,14 @@
     JavaScripts
     =============================================
     -->
+    <script>
+      //Oculta la pestaña de login en el menu_producto
+      if(localStorage.token != ''){
+          document.querySelector('#login_reg').remove()
+      }else{
+        document.querySelector('#logout').remove()
+      }
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./routes/logout.js"></script>
     <script src="./routes/menu_producto.js"></script>
