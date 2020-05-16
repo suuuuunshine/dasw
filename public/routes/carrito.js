@@ -91,10 +91,10 @@ function generarPedido(){
         console.log(response)
         alert('Pedido realizado, ve a tu perfil para ver tu pedido')
         window.location.href = './perfil.html'
-        // deleteCart().then(response=>{
-        //     console.log(response)
+        deleteCart().then(response=>{
+            console.log(response)
            
-        // })
+        })
     }).catch(function (message) {
         console.log(message);
     })
