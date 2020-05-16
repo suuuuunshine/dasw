@@ -58,7 +58,6 @@ function Login(login_obj, m){
     let xhr = new XMLHttpRequest()
     xhr.open('POST', `/api/login`, true)
     xhr.setRequestHeader('Content-Type', 'application/json')
-    //xhr.setRequestHeader('auth', `${localStorage.token}`)
     xhr.send(login_obj)
     xhr.onload = function (){
         if(xhr.status != 200) {

@@ -2,20 +2,21 @@ let user = JSON.parse(localStorage.getItem("User"));
 
 let userData = document.querySelector("#user-data");
 userData.insertAdjacentHTML("beforeend", getHTML());
+
 function getHTML() {
+  // <div class="row">
+  //   <div class="col" style="text-align: center;">
+  //     <label
+  //       style="height: 150px; width: 150px;border-radius: 50%; background-image: url(${
+  //         user.imagen != "null" ? user.imagen  : user.imageUrl  || "assets/images/placeholder-user.png" 
+  //       }); background-position: center; background-size: cover;"
+  //       class="user-avatar" id="user-avatar" for="userProfileAvatar">
+  //     </label>
+  //     <input ref="inputFile" type="file" accept="image/*" name="userProfileAvatar"
+  //       id="userProfileAvatar" onchange="handleInputFileChange(event)" />
+  //   </div>
+  // </div>
   return `<form method="submit" id="userDataForm"><div class="col-sm-3 col-md-3 col-lg-3">
-          <div class="row">
-            <div class="col" style="text-align: center;">
-              <label
-                style="height: 150px; width: 150px;border-radius: 50%; background-image: url(${
-                  user.imageUrl || "assets/images/placeholder-user.png"
-                }); background-position: center; background-size: cover;"
-                class="user-avatar" id="user-avatar" for="userProfileAvatar">
-              </label>
-              <input ref="inputFile" type="file" accept="image/*" name="userProfileAvatar"
-                id="userProfileAvatar" onchange="handleInputFileChange(event)" />
-            </div>
-          </div>
           <div class="row work-details" style="margin-top: 10px;">
             <ul>
               <li><strong>Teléfono: </strong><span class="font-serif">
@@ -48,7 +49,7 @@ function getHTML() {
               </li>
             </ul>
             <textarea name="description"  id="description" class="form-control" rows="7" placeholder="Descripción de tu perfil"
-            spellcheck="false">${user.descripcion} </textarea>
+            spellcheck="false">${  user.descripcion != "null" ? user.descripcion : ""} </textarea>
           </div>
           <button class="btn btn-primary" id="save" type="submit" >Guardar Cambios</button>
           <button class="btn btn-danger" id="cancelar" >Cancelar</button>
@@ -69,7 +70,7 @@ function handleInputFileChange(event) {
       "user-avatar"
     ).style.backgroundImage = `url(${URL.createObjectURL(file)})`;
     user.image = file;
-    user.imageUrl = "assets/images/profilephoto.jpg";
+    user.imageUrl = "./assets/images/profilephoto.jpg";
     localStorage.setItem("User", JSON.stringify(user));
   } else {
     alert(
@@ -89,17 +90,17 @@ function updateUser(event) {
   const form = document.forms.userDataForm;
 
   const formData = {
-    nombre: form.nombre.value,
-    apellido: form.apellido.value,
-    telefono: form.telefono.value,
-    password: form.password.value,
-    descripcion: form.description.value,
-    _id: user.id,
+    nombre:   form.nombre.value.length ? form.nombre.value :  form.nombre.value,
+    apellido: form.apellido.value.length ? form.apellido.value :  form.apellido.value,
+    telefono: form.telefono.value.length ? form.telefono.value :  form.telefono.value,
+    password: form.passwordConfirm.value.length ? form.passwordConfirm.value :  form.passwordConfirm.value,
+    descripcion: form.description.value.length ? form.description.value :  form.description.value,
+    correo: form.correo.value,
+    _id: user._id,
   };
 
-  
   let xhr = new XMLHttpRequest();
-  xhr.open("PATCH", "/api/user");
+  xhr.open("PATCH", "/api/users");
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.send(formData.id, formData);
   xhr.onload = function () {

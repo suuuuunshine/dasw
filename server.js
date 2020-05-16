@@ -58,8 +58,6 @@ const isAuth = () => {
 ////////////MENU/////////////////////////
 app.get('/api/categories', (req, res) => {
     Category.find({},(err, docs) => { //DATABASE UPDATED!!!
-        console.log(docs);
-        console.log(err);
         if (docs) {
             let product = docs;
             let limit = 6;
@@ -106,7 +104,6 @@ app.get('/api/categories', (req, res) => {
 });
 
 app.get('/api/categories/:categoryId/products', function(req, res){
-    console.warn('hola', req.params)
         Product.find({category: req.params.categoryId})
         .then((results)=>{
             return res.status(200).json(results)
@@ -411,7 +408,7 @@ app.post("/api/login", requireJsonContent(), (req, res) =>{
 
 // ACTUALIZAR USUARIO
 
-app.patch("/api/user", requireJsonContent(), (req, res) =>{
+app.patch("/api/users", requireJsonContent(), (req, res) =>{
     const id = req.body._id
     User.updateOne({_id: id}, req.body) .then((results) => {
         return res.status(200).json(results)
@@ -420,5 +417,16 @@ app.patch("/api/user", requireJsonContent(), (req, res) =>{
         return res.status(400).json(err)
     })
 })
+
+app.get('/api/users/:id', (req, res) => {
+    User.findOne({_id: req.params.id})    
+    .then((results)=>{
+        return res.status(200).json(results)
+    }).catch(err => {
+        console.log(err)
+        return res.status(400).json(err)
+    })
+})
+
 
 app.listen(port, () => console.log(`ejecutando server en puerto: ${port}`))

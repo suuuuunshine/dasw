@@ -145,3 +145,8 @@ Content-Type: application/json
 ###
 GET http://localhost:3000/api/categories/1
 Content-Type: application/json
+
+
+###
+GET http://localhost:3000/api/users/5ebe2f26d6bb888fe0c2702a
+Content-Type: application/json
