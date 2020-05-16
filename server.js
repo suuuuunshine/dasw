@@ -339,7 +339,7 @@ app.get('/api/pedidos/:id', (req, res) => {
 
 
 //crear carrito nuevo
-app.post('/api/carts', function (req, res, next) {
+app.post('/api/carts', function (req, res) {
     const model = new Cart(req.body)
     model.save()
     .then((result) => {
