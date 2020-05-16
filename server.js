@@ -305,29 +305,22 @@ app.put('/api/carts/:userId', function (req, res) {
 
 
 /* CARRITO CON POPULATE QUE SÍ SIRVE */
-
-app.get("/api/carts/:userId", function (req, res) {
-    
-    const userId = req.params.userId
-    
-    Cart.find({user_id: userId})
-        .populate('productos')
-        .then((results) => {
-            return res.status(200).json(results)
-        })
-        .catch(err => {
-            console.log(err)
-            return res.status(400).json(err)
-        })
-
-        
+app.get('/api/users/:user_id/carts', function (req, res) {
+    const userId = req.params.user_id
+    Cart.findOne({user_id: userId})
+    .populate('products')    
+    .then((results)=>{
+        return res.status(200).json(results)
+    }).catch(err => {
+        console.log(err)
+        return res.status(400).json(err)
+    })
 })
 
 
-
 //TRAER PEDIDO POR ID DE USUARIO
-app.get('/api/pedidos/:id', (req, res) => {
-    PastOrder.find({})
+app.get('/api/users/:id/pedidos', (req, res) => {
+    PastOrder.find({user: req.params.id})
     .populate('products user')
     .then((results)=>{
         return res.status(200).json(results)
@@ -427,6 +420,8 @@ app.get('/api/users/:id', (req, res) => {
         return res.status(400).json(err)
     })
 })
+
+
 
 
 app.listen(port, () => console.log(`ejecutando server en puerto: ${port}`))

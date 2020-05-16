@@ -103,18 +103,27 @@ Content-Type: application/json
     "total": 189
 }
 
-##
+###
 GET http://localhost:3000/api/carts/1
 Content-Type: application/json
 
-#
-GET http://localhost:3000/api/pedidos
+###
+GET http://localhost:3000/api/users/5ec019c7463b3a831d983059/pedidos
 Content-Type: application/json
 
-##
-POST http://localhost:3000/api/pedido
+###
+GET http://localhost:3000/api/users/5ebf73eb51c8ead51a05a855/carts
 Content-Type: application/json
 
+###
+POST http://localhost:3000/api/pedidos
+Content-Type: application/json
+
+{
+    "user": "5ebf73eb51c8ead51a05a855",
+    "products": "5ebf6c869ada6a367068db49",
+    "total": "200"
+}
 
 
 ###

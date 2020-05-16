@@ -8,54 +8,45 @@ let pago = {
     total: 0
 }
 const USERID = JSON.parse(localStorage.getItem('User'))._id
-let allProducts = new Promise(function (res, rej) { //Manda llamar a todos los productos
+let getCart = new Promise(function (res, rej) { 
     let xhr = new XMLHttpRequest();
     xhr.open('GET', `/api/users/${USERID}/carts`);
-    //xhr.setRequestHeader("", "");
     xhr.send();
     xhr.onload = function () {
         if (xhr.status != 200) {
             console.error(xhr.status + ": " + xhr.statusText);
-            
             rej("Error de carga");
         } else {
-            let prod = JSON.parse(xhr.response);
-            res(prod);
+            let cart = JSON.parse(xhr.response);
+            res(cart);
         }
     };
 });
 
-allProducts.then(function (data) { //Si la promesa se cumple
-    data.forEach(function (e) {
-        Products.push(e);
+getCart.then(cart => { 
+    cart.products.forEach(function (product) {
+        Products.push(product);
     });
     fullHTML(Products);
 }).catch(function (message) {
     console.log(message);
 })
 
-function fullHTML(arr) {
-    arr.forEach(e => {
-        let str = `<tr><td class="hidden-xs"><img src="assets/images/${e.imagen}" alt="${e.nombre}"></td>
+function fullHTML(productos) {
+    productos.forEach(producto => {
+        let str = `<tr><td class="hidden-xs"><img src="${producto.imagen}" alt="${producto.nombre}"></td>
         <td>
-            <h5 class="product-title font-alt">${e.nombre}</h5>
-            <p>${e.comentarios}</p>
+            <h5 class="product-title font-alt">${producto.nombre}</h5>
+            <p>${producto.descripcion}</p>
         </td>
         <td class="hidden-xs">
-            <h5 class="product-title font-alt">$${e.precio}.00</h5>
+            <h5 class="product-title font-alt">$${producto.precio}.00</h5>
         </td>
-        <td>
-            <h5 class="product-title font-alt">${e.cantidad}</h5>
-        </td>
-        <td>
-            <h5 class="product-title font-alt">$${e.precio * e.cantidad}.00</h5>
-        </td>
-        <td class="pr-remove"><a onclick="sndN('${e.nombre}','${e.cantidad}','${e.imagen}', '${e.id}')" class="fa fa-times" data-toggle="modal" data-target="#modalborrar"></a></td></tr>`;
+        <td class="pr-remove"><a onclick="sndN('${producto.nombre}','${producto.cantidad}','${producto.imagen}', '${producto.id}')" class="fa fa-times" data-toggle="modal" data-target="#modalborrar"></a></td></tr>`;
         tabla1.insertAdjacentHTML("beforeend", str);
 
-        let cantidad = e.cantidad;
-        let precio = e.precio;
-        let subtotal = cantidad * precio;
+        let precio = producto.precio;
+        let subtotal = precio;
         pago.subtotal += subtotal;
     });
     pago.envio = 30;

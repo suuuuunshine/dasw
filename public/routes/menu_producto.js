@@ -172,7 +172,7 @@ function agregarAlCarrito(producto) {
     let productos = []
     productos.push(productId)
     let total = producto.precio
-    const cartObject = {user_id, productos, total}
+    const cartObject = {user_id, products: productos, total}
 
     let xhr = new XMLHttpRequest()
     xhr.open("POST", "/api/carts", true)
