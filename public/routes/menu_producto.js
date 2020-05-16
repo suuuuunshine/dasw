@@ -5,9 +5,7 @@ let title = document.querySelector('#ProductTitle h1');
 let qual = document.querySelector('#ProductQual');
 let price = document.querySelector('#ProductPrice');
 let desc = document.querySelector('#ProductDescription');
-let quant = document.querySelector('#ProductQuantity input');
 let addbasket = document.querySelector('#ProductBasket');
-let comment = document.querySelector('#ProductComment textarea');
 let id;
 let Products = [];
 let hidden = []
@@ -43,9 +41,9 @@ allProducts.then(products => { //Si la promesa se cumple
 }).catch(function (message) {
     console.log(message);
 })
-
+let firstProduct
 function fullHTML(productsArray) {
-    let firstProduct = productsArray[0];
+    firstProduct = productsArray[0];
     let strImage = `<img src="${firstProduct.imagen}" alt="${firstProduct.nombre}">`;
     image.innerHTML = strImage;
 
@@ -61,13 +59,9 @@ function fullHTML(productsArray) {
     let strDesc = firstProduct.descripcion;
     desc.innerText = strDesc;
 
-    quant.value = 1;
-    comment.value = "";
     producto._id = firstProduct._id;
     producto.nombre = firstProduct.nombre;
     producto.precio = firstProduct.precio;
-    producto.cantidad = quant.value;
-    producto.comentarios = comment.value;
     addbasket.querySelector("span").innerText = "Agregar al carrito"
     producto.imagen = firstProduct.imagen;
     let background = `<div class="module bg-dark-60" style="background-image:url(&quot;${firstProduct.imagen}&quot;);"></div>`
@@ -104,8 +98,6 @@ SecondBlock.addEventListener("click", (e) => {
         qual.innerHTML = Stars(productObject.calificacion);
         price.innerText = `$${productObject.precio}.00`;
         desc.innerText = productObject.descripcion;
-        quant.value = 1;
-        comment.value = "";
         producto = productObject;
         producto.cantidad = 1;
         producto.comentarios = "";
@@ -165,32 +157,63 @@ function Stars(num) {
     }
 }
 
+
+let totalCarrito = 0
+let productos = []
+const cartId = localStorage.getItem('cart')
 function agregarAlCarrito(producto) {
     const user = JSON.parse(localStorage.getItem('User'))
     const user_id = user._id
     const productId = producto._id
-    let productos = []
-    productos.push(productId)
-    let total = producto.precio
-    const cartObject = {user_id, products: productos, total}
 
-    let xhr = new XMLHttpRequest()
-    xhr.open("POST", "/api/carts", true)
-    xhr.setRequestHeader("Content-Type", "application/json")
-    xhr.send(JSON.stringify(cartObject));
-    xhr.onload = function (e) {
-        if (xhr.status != 200) {
-            console.error(xhr.response)
-            console.error(xhr.status + ": " + xhr.statusText);
-        } else {
-           console.log(xhr.response)
-           localStorage.setItem('cart', xhr.response._id)
-           const pedir = confirm('Producto agregado al carrito, ¿deseas realizar el pedido?')
-           if(pedir == true){
-            window.location.href = './carrito.html'
-           }else{
-               e.preventDefault();
-           }
+    productos.push(productId)
+    console.log('producto.precio', producto.precio)
+    totalCarrito += producto.precio
+    console.log('totalCarrito', totalCarrito)
+    
+    console.log(cartId)
+    if(cartId == 'undefined' || cartId == "" || cartId == "null"){
+        console.log('POST')
+        const cartObject = {user_id, products: productos, total: totalCarrito}
+        let xhr = new XMLHttpRequest()
+        xhr.open("POST", "/api/carts", true)
+        xhr.setRequestHeader("Content-Type", "application/json")
+        xhr.send(JSON.stringify(cartObject));
+        xhr.onload = function (e) {
+            if (xhr.status != 200) {
+                console.error(xhr.response)
+                console.error(xhr.status + ": " + xhr.statusText);
+            } else {
+               localStorage.setItem('cart', JSON.parse(xhr.response)._id)
+               const pedir = confirm('Producto agregado al carrito, ¿deseas realizar el pedido?')
+               if(pedir == true){
+                window.location.href = './carrito.html'
+               }else{
+                   e.preventDefault();
+               }
+            }
+        };
+    }else{
+        console.log('PUT')
+        console.log(productos)
+        let xhr = new XMLHttpRequest()
+        const cartObject = {_id: cartId, user_id, products: productos, total: totalCarrito}
+        console.log(cartObject)
+        xhr.open("PUT", `/api/carts`, true)
+        xhr.setRequestHeader("Content-Type", "application/json")
+        xhr.send(JSON.stringify(cartObject));
+        xhr.onload = function (e) {
+            if (xhr.status != 200) {
+                console.error(xhr.response)
+                console.error(xhr.status + ": " + xhr.statusText);
+            } else {               
+               const pedir = confirm('Producto agregado al carrito, ¿deseas realizar el pedido?')
+               if(pedir == true){
+                window.location.href = './carrito.html'
+               }else{
+                   e.preventDefault();
+               }
+            }
         }
-    };
+    }
 }
