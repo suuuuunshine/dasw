@@ -40,7 +40,7 @@ function fullHTML(products) {
             const HTML = `<div class="col-sm-6 col-md-4 col-lg-4">
             <div class="shop-item">
               <div class="shop-item-image" style="max-height: 200px;"><img src="${category.imagen}" alt="${category.nombre}"/>
-                <div class="shop-item-detail""  ><a  class="btn btn-round btn-b"><span  onclick="verOpciones('${category._id}')" class="icon-basket">Ver opciones</span></a></div>
+                <div class="shop-item-detail""  ><a onclick="verOpciones('${category._id}')" class="btn btn-round btn-b"><span class="icon-basket">Ver opciones</span></a></div>
               </div>
               <h4 class="shop-item-title font-alt"><a href="#">${category.nombre}</a></h4>
             </div>

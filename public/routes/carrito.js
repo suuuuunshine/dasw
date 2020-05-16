@@ -1,5 +1,7 @@
 let tabla1 = document.querySelector('#desglose');
 let tabla2 = document.querySelector('#pago')
+let checkout = document.getElementById('checkout')
+checkout.addEventListener('click', generarPedido)
 let Products = [];
 let deleted;
 let pago = {
@@ -57,8 +59,66 @@ function fullHTML(productos) {
     document.querySelector('#total h4').innerText = `$${pago.total}.00`;
 }
 
+function generarPedido(){
+    const pedido = {
+        user: USERID,
+        products: Products.map(product =>{
+            return product._id
+        }),
+        total: pago.total
+    }
+        let realizarPedido = new Promise(function (res, rej) { 
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', `/api/pedidos`);
+        xhr.setRequestHeader("Content-Type", "application/json")
+        xhr.send(JSON.stringify(pedido));
+        checkout.disabled = true
+        xhr.onload = function () {
+            console.log(xhr.status)
+            if (xhr.status != 200) {
+                console.error(xhr.response)
+                console.error(xhr.status + ": " + xhr.statusText);
+                rej("Error de carga");
+            } else {
+                console.log('PEDIDO REALIZADO')
+                let cart = JSON.parse(xhr.response);
+                res(cart);
+            }
+        };
+    });
+    
+    realizarPedido.then(response => { 
+        console.log(response)
+        alert('Pedido realizado, ve a tu perfil para ver tu pedido')
+        window.location.href = './perfil.html'
+        // deleteCart().then(response=>{
+        //     console.log(response)
+           
+        // })
+    }).catch(function (message) {
+        console.log(message);
+    })
+}
+
+function deleteCart(){
+   return new Promise((res, rej) =>{
+        let xhr = new XMLHttpRequest();
+        xhr.open('DELETE', `/api/user/${USERID}/carts`);
+        xhr.send();
+        xhr.onload = function () {
+            if (xhr.status != 200) {
+                console.error(xhr.status + ": " + xhr.statusText);
+                rej("Error de carga");
+            } else {
+                let response = JSON.parse(xhr.response);
+                res(response);
+            }
+        }
+    })
+}
+
 function sndN(name, quant, img, id) {
-    document.querySelector('.modal-body').innerHTML = `<img src="assets/images/${img}" alt="${name}"><h4>¿Seguro que deseas borrar ${quant} ${name} de tu carrito?</h4>`;
+    document.querySelector('.modal-body').innerHTML = `<img src="${img}" alt="${name}"><h4>¿Seguro que deseas borrar ${quant} ${name} de tu carrito?</h4>`;
     deleted = id;
     console.log(deleted);
 }

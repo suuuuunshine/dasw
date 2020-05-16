@@ -250,18 +250,6 @@ app.get('/api/pedidos', (req, res) => {
 })
 
 ////////////////CANASTA/////////////////////
-
-app.get('/api/pedidos', (req, res) => {
-    let pedido = productos.pedido; //database En nueva version debe buscar por ID de usuario
-    if (pedido) {
-        res.status(200).send(pedido)
-    } else {
-        res.status(400).send({
-            error: "Carrito vacío"
-        })
-    }
-})
-
 // CREAR NUEVO PEDIDO
 app.post('/api/pedidos', (req, res) => {
     const model = new PastOrder(req.body)
@@ -273,8 +261,6 @@ app.post('/api/pedidos', (req, res) => {
         return res.status(400).json(err)
     })
 })
-
-
 app.delete('/api/pedidos/:id', (req, res) => {
     let ToDelete = productos.pedido.find(p => p.id == req.params.id); ///database En versiones nuevas debe buscar por ID usuario
     if (ToDelete) {
@@ -316,6 +302,20 @@ app.get('/api/users/:user_id/carts', function (req, res) {
         return res.status(400).json(err)
     })
 })
+app.delete('/api/users/:user_id/carts', function (req, res) {
+    console.log('hola')
+    console.log(req)
+    // const userId = req.params.user_id
+    // Cart.findOne({user_id: userId})    
+    // .then((response)=>{
+    //     return res.status(200).json(response)
+    // }).catch(err => {
+    //     console.log(err)
+    //     return res.status(400).json(err)
+    // })
+})
+
+
 
 
 //TRAER PEDIDO POR ID DE USUARIO
