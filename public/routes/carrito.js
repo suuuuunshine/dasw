@@ -7,15 +7,16 @@ let pago = {
     envio: 0,
     total: 0
 }
-
+const USERID = JSON.parse(localStorage.getItem('User'))._id
 let allProducts = new Promise(function (res, rej) { //Manda llamar a todos los productos
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', '/pedido');
+    xhr.open('GET', `/api/users/${USERID}/carts`);
     //xhr.setRequestHeader("", "");
     xhr.send();
     xhr.onload = function () {
         if (xhr.status != 200) {
-            alert(xhr.status + ": " + xhr.statusText);
+            console.error(xhr.status + ": " + xhr.statusText);
+            
             rej("Error de carga");
         } else {
             let prod = JSON.parse(xhr.response);
