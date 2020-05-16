@@ -2493,6 +2493,7 @@ Google map
 }
 
 .shop-item-image {
+	cursor: pointer;
   position: relative;
   overflow: hidden;
 }

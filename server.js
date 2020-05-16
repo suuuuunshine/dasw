@@ -56,8 +56,7 @@ const isAuth = () => {
 }
 
 ////////////MENU/////////////////////////
-app.get('/api/category', (req, res) => {
-
+app.get('/api/categories', (req, res) => {
     Category.find({},(err, docs) => { //DATABASE UPDATED!!!
         console.log(docs);
         console.log(err);
@@ -106,9 +105,62 @@ app.get('/api/category', (req, res) => {
     })
 });
 
+app.get('/api/categories/:categoryId/products', function(req, res){
+    console.warn('hola', req.params)
+        Product.find({category: req.params.categoryId})
+        .then((results)=>{
+            return res.status(200).json(results)
+        }).catch(err => {
+            console.log(err)
+            return res.status(400).json(err)
+        })
+})
 
-app.get('/api/category/:id', requireJsonContent(),(req, res) => {
-   
+
+app.patch('/api/categories/:id', requireJsonContent(), (req, res) => {
+    Category.update({id: req.params.id}, {$set: req.body}, (err, docs) =>{
+        
+     if (docs) {
+         let product = docs;
+         res.status(200).send(product);
+     }
+     else{
+         console.log(err);
+         res.status(400).send({
+             error: "Error de actualización"
+         })
+     }
+    })
+ })
+
+ app.put('/api/categories/:id', (req, res)=>{
+    Category.update({id: req.params.id}, {$set: req.body}, (err, docs) =>{
+       
+        if (docs) {
+            let product = docs;
+            res.status(200).send(product);
+        }
+        else{
+            console.log(err);
+            res.status(400).send({
+                error: "Error de actualización"
+            })
+        }
+       })
+})
+
+app.post('/api/categories', function (req, res) {
+    const model = new Category(req.body)
+    model.save()
+    .then(result => {
+        return res.status(201).json(result)
+    })
+    .catch(err => {
+        return res.status(400).json(err)
+    })
+})
+app.get('/api/products/:id', requireJsonContent(),(req, res) => {
+   console.warn('req', req)
     Category.findOne({id: req.params.id},(err, docs) => {
         if (docs) {
             console.log("Aqui si queremos");
@@ -127,71 +179,7 @@ app.get('/api/category/:id', requireJsonContent(),(req, res) => {
 
 });
 
-
-app.patch('/api/category/:id', requireJsonContent(), (req, res) => {
-   Category.update({id: req.params.id}, {$set: req.body}, (err, docs) =>{
-       
-    if (docs) {
-        let product = docs;
-        res.status(200).send(product);
-    }
-    else{
-        console.log(err);
-        res.status(400).send({
-            error: "Error de actualización"
-        })
-    }
-   })
-})
-
-app.put('/api/category/:id', (req, res)=>{
-    Category.update({id: req.params.id}, {$set: req.body}, (err, docs) =>{
-       
-        if (docs) {
-            let product = docs;
-            res.status(200).send(product);
-        }
-        else{
-            console.log(err);
-            res.status(400).send({
-                error: "Error de actualización"
-            })
-        }
-       })
-})
-
-
-app.post('/api/category', function (req, res) {
-    const model = new Category(req.body)
-    model.save()
-    .then(result => {
-        return res.status(201).json(result)
-    })
-    .catch(err => {
-        return res.status(400).json(err)
-    })
-})
-
-
-//////////////MENU PRODUCTO//////////////
-//TODO RENOMBRAR PRODUCTTYPE POR CATEGORY
-
-// post para crear un producto nuevo
-
-//// TRAE TODOS LOS PRODUCTOS DE UNA CATEGORIA
-app.get('api/:id/products/', function(req, res){
-    console.warn(req.params)
-    res.send('api/' + req.params.id + '/products')
-        Product.find({category: req.params.id})
-        .then((results)=>{
-            return res.status(200).json(results)
-        }).catch(err => {
-            console.log(err)
-            return res.status(400).json(err)
-        })
-})
-
-app.post('/api/product', function (req, res ) {
+app.post('/api/products', function (req, res ) {
     const model = new Product(req.body)
     model.save()
     .then(result => {
@@ -204,38 +192,21 @@ app.post('/api/product', function (req, res ) {
     })
 })
 
-//Busqueda por query
-app.get('/api/product', (req, res) => {
-    //let num = parseInt(req.query.tipo);
-    if (req.query.id) {
-        Product.find({id: req.query.id}, (err, docs) => { //DATABASE UPDATED!!!
-            if (docs) {
-                let product = docs;
-                res.status(200).send(product)
-            }
-            else {
-                console.log("error", err);
-            }
-                
-        });
-    }
-});
-
-//Busqueda por parametro
-app.get('/api/product/:tipo', (req, res) => {
-    Product.find({product: req.body.tipo},(err, docs) => { //DATABASE UPDATED!!!
-        if (docs) {
-            let product = docs;
-            console.log(product);
-        }
-        else{
-            console.log("error", err);
-        }
-    });
-})
+// //Busqueda por parametro
+// app.get('/api/products/:tipo', (req, res) => {
+//     Product.find({product: req.body.tipo},(err, docs) => { //DATABASE UPDATED!!!
+//         if (docs) {
+//             let product = docs;
+//             console.log(product);
+//         }
+//         else{
+//             console.log("error", err);
+//         }
+//     });
+// })
 
 
-app.put('/api/product/:id', (req, res) => {
+app.put('/api/products/:id', (req, res) => {
       Product.updateOne({id: req.params.id}, {$set: req.body}, (err, docs) => { //DATABASE UPDATED!!!
         if (docs) {
             let product = docs;
@@ -251,7 +222,7 @@ app.put('/api/product/:id', (req, res) => {
  
 })
 
-app.patch('/api/product/:id', (req, res) => {
+app.patch('/api/products/:id', (req, res) => {
     Product.updateOne({id: req.params.id}, {$set: req.body}, (err, docs) => { //DATABASE UPDATED!!!
       if (docs) {
           let product = docs;
@@ -283,7 +254,7 @@ app.get('/api/pedidos', (req, res) => {
 
 ////////////////CANASTA/////////////////////
 
-app.get('/api/pedido', (req, res) => {
+app.get('/api/pedidos', (req, res) => {
     let pedido = productos.pedido; //database En nueva version debe buscar por ID de usuario
     if (pedido) {
         res.status(200).send(pedido)
@@ -295,7 +266,7 @@ app.get('/api/pedido', (req, res) => {
 })
 
 // CREAR NUEVO PEDIDO
-app.post('/api/pedido', (req, res) => {
+app.post('/api/pedidos', (req, res) => {
     const model = new PastOrder(req.body)
     model.save()
     .then((results)=>{
@@ -307,7 +278,7 @@ app.post('/api/pedido', (req, res) => {
 })
 
 
-app.delete('/api/pedido/:id', (req, res) => {
+app.delete('/api/pedidos/:id', (req, res) => {
     let ToDelete = productos.pedido.find(p => p.id == req.params.id); ///database En versiones nuevas debe buscar por ID usuario
     if (ToDelete) {
         for (let i = 0; i < productos.pedido.length; i++) {
@@ -449,6 +420,5 @@ app.patch("/api/user", requireJsonContent(), (req, res) =>{
         return res.status(400).json(err)
     })
 })
-
 
 app.listen(port, () => console.log(`ejecutando server en puerto: ${port}`))

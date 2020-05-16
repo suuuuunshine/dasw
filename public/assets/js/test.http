@@ -9,7 +9,8 @@ GET http://localhost:3000/api/usuarios/?correo=c@c.com
 
 
 ###
-GET http://localhost:3000/api/5ebe34fca090dee580829706/products/
+GET http://localhost:3000/api/categories/5ebe34fca090dee580829706/products/
+Content-Type: application/json
 
 ###
 PUT http://localhost:3000/api/products/4
@@ -40,17 +41,18 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/api/product/17
+GET http://localhost:3000/api/products/17
 
 
 ###
-PATCH http://localhost:3000/api/product/22
+PATCH http://localhost:3000/api/products/22
 Content-Type: application/json
 
 {
     "hidden": 1
 }
-##
+
+###
 GET http://localhost:3000/api/usuarios/?correo=sol@sol.com
 Content-Type: application/json
 
@@ -60,34 +62,32 @@ Content-Type: application/json
 }
 
 
-##
+###
 GET http://localhost:3000/api/usuario/  
 Content-Type: application/json
 
-
-
 ###
-POST http://localhost:3000/api/product
+POST http://localhost:3000/api/products
 Content-Type: application/json
 
 {
-      "nombre": "Hamburguesa de Pollo",
+      "nombre": "Mustard-Onion Hot Dog",
       "calificacion": 5,
-      "precio": 90,
-      "descripcion": "Al clásico sabor del pollo crujiente con lechuga fresca picada, jitomate, una capa de mayonesa cremosa, servida sobre un pan suave, le agregamos todo lo rico del chipotle, aros de cebolla, salsa BBQ Hot Spicy, tocino rebanado y queso monterrey. ¡Tienes que probarla!",
-      "imagen": "BurgerChicken.jpg",
-      "category" : "5ebe34fca090dee580829706",
-      "hidden": false,
+      "precio": 60,
+      "descripcion": "Pan pretzel, salchicha Frankfurt, deliciosa cebolla caramelizada y cremosa mostaza dijon.",
+      "imagen": "./assets/images/HotdogMostaza.jpg",
+       "category":"5ebe34f5a090dee580829705",
+      "hidden":  false,
       "deleted": false
 }
 
 ###
-POST http://localhost:3000/api/category
+POST http://localhost:3000/api/categories
 Content-Type: application/json
 
     {
-      "nombre": "Bebidas",
-      "imagen": "public/assets/images/Soda.jpg",
+           "nombre": "Sándwiches",
+      "imagen": "public/assets/images/club-sandwich.jpg",
       "hidden": false,
       "deleted": false
     }
@@ -118,11 +118,11 @@ Content-Type: application/json
 
 
 ###
-GET http://localhost:3000/api/category
+GET http://localhost:3000/api/categories
 
 
 ###
-POST http://localhost:3000/api/category
+POST http://localhost:3000/api/categories
 Content-Type: application/json
 
 {
@@ -134,7 +134,7 @@ Content-Type: application/json
 
 
 ###
-PATCH  http://localhost:3000/api/category/1
+PATCH  http://localhost:3000/api/categories/1
 Content-Type: application/json
 
 {
@@ -143,5 +143,5 @@ Content-Type: application/json
 
 
 ###
-GET http://localhost:3000/api/category/1
+GET http://localhost:3000/api/categories/1
 Content-Type: application/json

@@ -42,6 +42,12 @@
       "imagen": "public/assets/images/Soda.jpg",
       "hidden": false,
       "deleted": false
+    },
+    {
+      "nombre": "Sándwiches",
+      "imagen": "public/assets/images/club-sandwich.jpg",
+      "hidden": false,
+      "deleted": false
     }
   ],
   "products": [
@@ -50,10 +56,10 @@
       "calificacion": 5,
       "precio": 70,
       "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
-      "imagen": "BurritoPicadillo.jpg",
+      "imagen": "./assets/images/BurritoPicadillo.jpg",
       "producto": 1,
       
-      "hidden": 0,
+      "hidden":  false,
       "deleted": false
     },
     {
@@ -61,10 +67,10 @@
       "calificacion": 5,
       "precio": 70,
       "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
-      "imagen": "BurritoTofuChorizo.png",
+      "imagen": "./assets/images/BurritoTofuChorizo.png",
       "producto": 1,
       
-      "hidden": 0,
+      "hidden":  false,
       "deleted": false
     },
     {
@@ -72,10 +78,10 @@
       "calificacion": 5,
       "precio": 70,
       "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
-      "imagen": "BurritoAtunAguacate.jpg",
+      "imagen": "./assets/images/BurritoAtunAguacate.jpg",
       "producto": 1,
       
-      "hidden": 0,
+      "hidden":  false,
       "deleted": false
     },
     {
@@ -83,10 +89,10 @@
       "calificacion": 5,
       "precio": 150,
       "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
-      "imagen": "PizzaTomatoesOlive.jpg",
+      "imagen": "./assets/images/PizzaTomatoesOlive.jpg",
       "producto": 2,
       
-      "hidden": 0,
+      "hidden":  false,
       "deleted": false
     },
     {
@@ -94,10 +100,10 @@
       "calificacion": 5,
       "precio": 150,
       "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
-      "imagen": "PizzaTomatoesMushroomsGarlic.jpg",
+      "imagen": "./assets/images/PizzaTomatoesMushroomsGarlic.jpg",
       "producto": 2,
       
-      "hidden": 0,
+      "hidden":  false,
       "deleted": false
     },
     {
@@ -105,10 +111,10 @@
       "calificacion": 5,
       "precio": 150,
       "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
-      "imagen": "PizzaTomatoesOlive.jpg",
+      "imagen": "./assets/images/PizzaTomatoesOlive.jpg",
       "producto": 2,
       
-      "hidden": 0,
+      "hidden":  false,
       "deleted": false
     },
     {
@@ -116,9 +122,8 @@
       "calificacion": 5,
       "precio": 50,
       "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
-      "imagen": "SandwichCheese.jpg",
-      "producto": 3,
-      
+      "imagen": "./assets/images/SandwichCheese.jpg",
+      "category":"5ebf68498ff68a2797a4a9ea",
       "hidden": 1,
       "deleted": false
     },
@@ -127,10 +132,9 @@
       "calificacion": 5,
       "precio": 50,
       "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
-      "imagen": "SandwichAtunAguacate.jpg",
-      "producto": 3,
-      
-      "hidden": 0,
+      "imagen": "./assets/images/SandwichAtunAguacate.jpg",
+      "category":"5ebf68498ff68a2797a4a9ea",
+      "hidden":  false,
       "deleted": false
     },
     {
@@ -138,10 +142,9 @@
       "calificacion": 5,
       "precio": 50,
       "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
-      "imagen": "SandwichSalamiHuevo.jpg",
-      "producto": 3,
-      
-      "hidden": 0,
+      "imagen": "./assets/images/SandwichSalamiHuevo.jpg",
+      "category":"5ebf68498ff68a2797a4a9ea",
+      "hidden":  false,
       "deleted": false
     },
     {
@@ -149,43 +152,39 @@
       "calificacion": 5,
       "precio": 60,
       "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
-      "imagen": "HotdogCerdoPimiento.jpg",
-      "producto": 4,
-      
-      "hidden": 0,
+      "imagen": "./assets/images/HotdogCerdoPimiento.jpg",
+       "category":"5ebe34f5a090dee580829705",
+      "hidden":  false,
       "deleted": false
     },
     {
       "nombre": "Classic-Mustard Hot Dog",
       "calificacion": 5,
-      "precio": 60,
+      "precio": 90,
       "descripcion": "Pan pretzel, salchicha Rindswürst, queso mozzarella y mostaza dijon.",
-      "imagen": "HotdogClasico.jpg",
-      "producto": 4,
-      
-      "hidden": 0,
+      "imagen": "./assets/images/HotdogClasico.jpg",
+       "category":"5ebe34f5a090dee580829705",
+       "hidden":  false,
       "deleted": false
     },
     {
       "nombre": "Caramel-Onion Spicy Hot Dog",
       "calificacion": 5,
-      "precio": 60,
+      "precio": 120,
       "descripcion": "Pan natural, salchicha Rindswürst, queso cheddar, salsa BBQ, tiras de cebolla caramelizada crujientes y trozos de chile verde.",
-      "imagen": "HotdogGourmet.png",
-      "producto": 4,
-      
-      "hidden": 0,
+      "imagen": "./assets/images/HotdogGourmet.png",
+       "category":"5ebe34f5a090dee580829705",
+      "hidden":  false,
       "deleted": false
     },
     {
       "nombre": "Turkey Hot Dog",
       "calificacion": 5,
-      "precio": 60,
+      "precio": 80,
       "descripcion": "Pan natural, salchicha italiana de pavo, lechuga fresca, jitomate, cebolla y aderezo chipotle",
-      "imagen": "HotdogLechuga.jpg",
-      "producto": 4,
-      
-      "hidden": 0,
+      "imagen": "./assets/images/HotdogLechuga.jpg",
+       "category":"5ebe34f5a090dee580829705",
+      "hidden":  false,
       "deleted": false
     },
     {
@@ -193,10 +192,9 @@
       "calificacion": 5,
       "precio": 60,
       "descripcion": "Pan pretzel, salchicha Frankfurt, deliciosa cebolla caramelizada y cremosa mostaza dijon.",
-      "imagen": "HotdogMostaza.jpg",
-      "producto": 4,
-      
-      "hidden": 0,
+      "imagen": "./assets/images/HotdogMostaza.jpg",
+       "category":"5ebe34f5a090dee580829705",
+      "hidden":  false,
       "deleted": false
     },
     {
@@ -204,7 +202,7 @@
       "calificacion": 5,
       "precio": 90,
       "descripcion": "Al clásico sabor del pollo crujiente con lechuga fresca picada, jitomate, una capa de mayonesa cremosa, servida sobre un pan suave, le agregamos todo lo rico del chipotle, aros de cebolla, salsa BBQ Hot Spicy, tocino rebanado y queso monterrey. ¡Tienes que probarla!",
-      "imagen": "BurgerChicken.jpg",
+      "imagen": "./assets/images/BurgerChicken.jpg",
       "category" : "5ebe34fca090dee580829706",
       "hidden": false,
       "deleted": false
@@ -214,10 +212,9 @@
       "calificacion": 5,
       "precio": 120,
       "descripcion": "Cuenta con dos carnes a la parrilla, dos rebanada de queso amarillo, lechuga fresca, cebolla crujiente, pepinillos y salsa agridulce con tres rebanadas de pan suave con ajonjolí.",
-      "imagen": "BurgerDoubleCheese.jpg",
-      "producto": 5,
-      
-      "hidden": 0,
+      "imagen": "./assets/images/BurgerDoubleCheese.jpg",
+       "category":"5ebe34fca090dee580829706",
+      "hidden":  false,
       "deleted": false
     },
     {
@@ -225,21 +222,19 @@
       "calificacion": 5,
       "precio": 100,
       "descripcion": "Todo lo que quieres dentro de una hamburguesa y mas. Con carne a la parrilla, queso manchego derretido, cebolla carmelizada crujiente, mayonesa y un toque de salsa BBQ.",
-      "imagen": "BurgerResMachegoCebolla.jpg",
-      "producto": 5,
-      
-      "hidden": 0,
+      "imagen": "./assets/images/BurgerResMachegoCebolla.jpg",
+       "category":"5ebe34fca090dee580829706",
+      "hidden":  false,
       "deleted": false
     },
     {
-      "nombre": "Mushroom-Salami Burger",
+      "nombre": "Hamburguesa de champiñones con salami",
       "calificacion": 5,
       "precio": 90,
       "descripcion": "Mushroom-Salami Burger lleva una jugosa carne de res a la parrilla, preparada con deliciosas rebanadas de salami, jugosos tomates, lechuga recién cortada, mayonesa, jalapeños y cebollitas angry, sobre un pan suave con ajonjolí.",
-      "imagen": "BurgerResSalami.jpg",
-      "producto": 5,
-      
-      "hidden": 0,
+      "imagen": "./assets/images/BurgerResSalami.jpg",
+       "category":"5ebe34fca090dee580829706",
+      "hidden":  false,
       "deleted": false
     },
     {
@@ -247,10 +242,8 @@
       "calificacion": 5,
       "precio": 80,
       "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
-      "imagen": "BaguetteRocottaPolloMozarella.jpg",
-      "producto": 6,
-      
-      "hidden": 0,
+      "imagen": "./assets/images/BaguetteRocottaPolloMozarella.jpg",
+      "category": "5ebe350ca090dee580829707","hidden":  false,
       "deleted": false
     },
     {
@@ -258,10 +251,9 @@
       "calificacion": 5,
       "precio": 80,
       "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
-      "imagen": "BaguetteJamonAhumPepiQueso.jpg",
-      "producto": 6,
-      
-      "hidden": 0,
+      "imagen": "./assets/images/BaguetteJamonAhumPepiQueso.jpg",
+     "category": "5ebe350ca090dee580829707",
+      "hidden":  false,
       "deleted": false
     },
     {
@@ -269,10 +261,9 @@
       "calificacion": 5,
       "precio": 80,
       "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
-      "imagen": "BaguetteGoudaJamon.jpg",
-      "producto": 6,
-      
-      "hidden": 0,
+      "imagen": "./assets/images/BaguetteGoudaJamon.jpg",
+     "category": "5ebe350ca090dee580829707",
+      "hidden":  false,
       "deleted": false
     },
     {
@@ -280,10 +271,9 @@
       "calificacion": 5,
       "precio": 80,
       "descripcion": "Pan natural, salchicha Bratwürst colosal, pimiento, cebolla y mayonesa de jalapeño.",
-      "imagen": "BaguetteBetabelMachegoPollo.jpg",
-      "producto": 6,
-      
-      "hidden": 1,
+      "imagen": "./assets/images/BaguetteBetabelMachegoPollo.jpg",
+     "category": "5ebe350ca090dee580829707",
+      "hidden": false,
       "deleted": false
     },
     {
@@ -291,10 +281,10 @@
       "calificacion": 5,
       "precio": 50,
       "descripcion": "Suave textura y cremosa sensación con un toque fresco de limon y hiervabuena.",
-      "imagen": "PostrePayLimon.jpg",
+      "imagen": "./assets/images/PostrePayLimon.jpg",
       "producto": 7,
       
-      "hidden": 0,
+      "hidden":  false,
       "deleted": false
     },
     {
@@ -302,10 +292,10 @@
       "calificacion": 5,
       "precio": 50,
       "descripcion": "Suave postre con tectura cremosa y un toque envinado.",
-      "imagen": "PostreTresLeches.jpg",
+      "imagen": "./assets/images/PostreTresLeches.jpg",
       "producto": 7,
       
-      "hidden": 0,
+      "hidden":  false,
       "deleted": false
     },
     {
@@ -313,10 +303,10 @@
       "calificacion": 5,
       "precio": 50,
       "descripcion": "Delicioso cheesecake con los mejores frutos rojos.",
-      "imagen": "PostreCheesecake.jpg",
+      "imagen": "./assets/images/PostreCheesecake.jpg",
       "producto": 7,
       
-      "hidden": 0,
+      "hidden":  false,
       "deleted": false
     },
     {
@@ -324,10 +314,10 @@
       "calificacion": 5,
       "precio": 20,
       "descripcion": "Refrescos de la familia Coca-cola.",
-      "imagen": "SodasLata.jpg",
+      "imagen": "./assets/images/SodasLata.jpg",
       "producto": 8,
       
-      "hidden": 0,
+      "hidden":  false,
       "deleted": 1
     }
   ],

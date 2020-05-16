@@ -1501,7 +1501,7 @@ General Styles - Owlcarousel
 
 .shop-page-header{
   /* Add the blur effect */
-  filter: blur(2px);
+  /* filter: blur(2px); */
 }
 
 /*--------------------------------------------------------------
@@ -2508,11 +2508,10 @@ Nos valio queso y aqui vamos a añadir el codigo css que nos haga falta
 .shop-item {
   text-align: center;
   margin: 0 0 40px;
-  width: 33%;
+
 }
 
 .shop-item-image {
-  max-height: 200px;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -2530,6 +2529,7 @@ Nos valio queso y aqui vamos a añadir el codigo css que nos haga falta
 }
 
 .shop-item-image:after {
+  cursor: pointer;
   position: absolute;
   display: block;
   content: "";
