@@ -116,33 +116,33 @@ app.get("/api/categories/:categoryId/products", function (req, res) {
     });
 });
 
-app.patch("/api/categories/:id", requireJsonContent(), (req, res) => {
-  Category.update({ id: req.params.id }, { $set: req.body }, (err, docs) => {
-    if (docs) {
-      let product = docs;
-      res.status(200).send(product);
-    } else {
-      console.log(err);
-      res.status(400).send({
-        error: "Error de actualización",
-      });
-    }
-  });
-});
+// app.patch("/api/categories/:id", requireJsonContent(), (req, res) => {
+//   Category.update({ id: req.params.id }, { $set: req.body }, (err, docs) => {
+//     if (docs) {
+//       let product = docs;
+//       res.status(200).send(product);
+//     } else {
+//       console.log(err);
+//       res.status(400).send({
+//         error: "Error de actualización",
+//       });
+//     }
+//   });
+// });
 
-app.put("/api/categories/:id", (req, res) => {
-  Category.update({ id: req.params.id }, { $set: req.body }, (err, docs) => {
-    if (docs) {
-      let product = docs;
-      res.status(200).send(product);
-    } else {
-      console.log(err);
-      res.status(400).send({
-        error: "Error de actualización",
-      });
-    }
-  });
-});
+// app.put("/api/categories/:id", (req, res) => {
+//   Category.update({ id: req.params.id }, { $set: req.body }, (err, docs) => {
+//     if (docs) {
+//       let product = docs;
+//       res.status(200).send(product);
+//     } else {
+//       console.log(err);
+//       res.status(400).send({
+//         error: "Error de actualización",
+//       });
+//     }
+//   });
+// });
 
 app.post("/api/categories", function (req, res) {
   const model = new Category(req.body);
@@ -155,63 +155,64 @@ app.post("/api/categories", function (req, res) {
       return res.status(400).json(err);
     });
 });
-app.get("/api/products/:id", requireJsonContent(), (req, res) => {
-  console.warn("req", req);
-  Category.findOne({ id: req.params.id }, (err, docs) => {
-    if (docs) {
-      let product = docs;
-      res.status(200).send(product);
-    } else {
-      console.log(err);
-      res.status(400).send({
-        error: "No existen productos para mostrar",
-      });
-    }
-  }); //DATABASE UPDATED!!!
-});
 
-app.post("/api/products", function (req, res) {
-  const model = new Product(req.body);
-  model
-    .save()
-    .then((result) => {
-      return res.status(201).json(result);
-    })
-    .catch((err) => {
-      console.log(err);
-      return res.status(400).json(err);
-    });
-});
+// app.get("/api/products/:id", requireJsonContent(), (req, res) => {
+//   console.warn("req", req);
+//   Category.findOne({ id: req.params.id }, (err, docs) => {
+//     if (docs) {
+//       let product = docs;
+//       res.status(200).send(product);
+//     } else {
+//       console.log(err);
+//       res.status(400).send({
+//         error: "No existen productos para mostrar",
+//       });
+//     }
+//   }); //DATABASE UPDATED!!!
+// });
 
-app.put("/api/products/:id", (req, res) => {
-  Product.updateOne({ id: req.params.id }, { $set: req.body }, (err, docs) => {
-    //DATABASE UPDATED!!!
-    if (docs) {
-      let product = docs;
-      res.status(200).send(product);
-    } else {
-      console.log(err);
-      res.status(400).send({
-        error: "Error de actualización",
-      });
-    }
-  });
-});
+// app.post("/api/products", function (req, res) {
+//   const model = new Product(req.body);
+//   model
+//     .save()
+//     .then((result) => {
+//       return res.status(201).json(result);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       return res.status(400).json(err);
+//     });
+// });
 
-app.patch("/api/products/:id", (req, res) => {
-  Product.updateOne({ id: req.params.id }, { $set: req.body }, (err, docs) => {
-    //DATABASE UPDATED!!!
-    if (docs) {
-      let product = docs;
-      res.status(200).send(product);
-    } else {
-      console.log(err);
-      res.status(400).send({
-        error: "Error de actualización",
-      });
-    }
-  });
-});
+// app.put("/api/products/:id", (req, res) => {
+//   Product.updateOne({ id: req.params.id }, { $set: req.body }, (err, docs) => {
+//     //DATABASE UPDATED!!!
+//     if (docs) {
+//       let product = docs;
+//       res.status(200).send(product);
+//     } else {
+//       console.log(err);
+//       res.status(400).send({
+//         error: "Error de actualización",
+//       });
+//     }
+//   });
+// });
+
+// app.patch("/api/products/:id", (req, res) => {
+//   Product.updateOne({ id: req.params.id }, { $set: req.body }, (err, docs) => {
+//     //DATABASE UPDATED!!!
+//     if (docs) {
+//       let product = docs;
+//       res.status(200).send(product);
+//     } else {
+//       console.log(err);
+//       res.status(400).send({
+//         error: "Error de actualización",
+//       });
+//     }
+//   });
+// });
 
 // CONSULTAR PEDIDOS (ADMIN)
 
@@ -241,34 +242,22 @@ app.post("/api/pedidos", (req, res) => {
       return res.status(400).json(err);
     });
 });
-app.delete("/api/pedidos/:id", (req, res) => {
-  let ToDelete = productos.pedido.find((p) => p.id == req.params.id); ///database En versiones nuevas debe buscar por ID usuario
-  if (ToDelete) {
-    for (let i = 0; i < productos.pedido.length; i++) {
-      if (productos.pedido[i] == ToDelete) {
-        let p = productos.pedido.splice(i, 1);
-      }
-    }
-    // fs.writeFileSync('', JSON.stringify(productos.pedido));
-    res.status(200).send("Borrado");
-  } else {
-    res.status(400).send({
-      error: "No existe ese producto",
-    });
-  }
-});
-
-app.put("/api/carts", function (req, res) {
-  const _id = req.body._id
-  Cart.updateOne({_id}, req.body)
-    .then((response) => {
-      return res.status(200).json(response);
-    })
-    .catch((err) => {
-      console.log(err);
-      return res.status(400).json(err);
-    });
-});
+// app.delete("/api/pedidos/:id", (req, res) => {
+//   let ToDelete = productos.pedido.find((p) => p.id == req.params.id); ///database En versiones nuevas debe buscar por ID usuario
+//   if (ToDelete) {
+//     for (let i = 0; i < productos.pedido.length; i++) {
+//       if (productos.pedido[i] == ToDelete) {
+//         let p = productos.pedido.splice(i, 1);
+//       }
+//     }
+//     // fs.writeFileSync('', JSON.stringify(productos.pedido));
+//     res.status(200).send("Borrado");
+//   } else {
+//     res.status(400).send({
+//       error: "No existe ese producto",
+//     });
+//   }
+// });
 
 /* CARRITO CON POPULATE QUE SÍ SIRVE */
 app.get("/api/users/:user_id/carts", function (req, res) {
@@ -325,6 +314,17 @@ app.post("/api/carts", function (req, res) {
     });
 });
 
+app.put("/api/carts", function (req, res) {
+  const _id = req.body._id
+  Cart.updateOne({_id}, req.body)
+    .then((response) => {
+      return res.status(200).json(response);
+    })
+    .catch((err) => {
+      console.log(err);
+      return res.status(400).json(err);
+    });
+});
 ////////////////LOGIN - REGISTRO////////////
 
 //Post de creacion de usuario
@@ -375,7 +375,7 @@ app.post("/api/login", requireJsonContent(), (req, res) => {
           id: `${docs.id}`,
         });
       } else {
-        return res.status(400).send("Error finding user", err);
+        res.status(400).send("Error finding user", err)
       }
     }
   );
