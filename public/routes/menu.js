@@ -51,7 +51,6 @@ function fullHTML(products) {
 }
 
 function verOpciones(id) {
-    console.log('verOpciones', id)
     localStorage.ventanaID = id;
     window.location.href = "./menu_producto.html"
 }

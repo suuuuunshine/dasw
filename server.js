@@ -159,7 +159,6 @@ app.get("/api/products/:id", requireJsonContent(), (req, res) => {
   console.warn("req", req);
   Category.findOne({ id: req.params.id }, (err, docs) => {
     if (docs) {
-      console.log("Aqui si queremos");
       let product = docs;
       res.status(200).send(product);
     } else {
@@ -176,7 +175,6 @@ app.post("/api/products", function (req, res) {
   model
     .save()
     .then((result) => {
-      console.log(result);
       return res.status(201).json(result);
     })
     .catch((err) => {
@@ -261,7 +259,6 @@ app.delete("/api/pedidos/:id", (req, res) => {
 });
 
 app.put("/api/carts", function (req, res) {
-  console.log("req", req.body);
   const _id = req.body._id
   Cart.updateOne({_id}, req.body)
     .then((response) => {
@@ -288,11 +285,11 @@ app.get("/api/users/:user_id/carts", function (req, res) {
 });
 
 app.delete("/api/users/:user_id/carts", function (req, res) {
-  console.log("hola");
-  console.log(req);
-  const userId = req.params.user_id;
-  Cart.findOne({ user_id: userId })
+  console.log(req)
+  const cartId = req.body._id;
+  Cart.deleteOne({ _id: cartId })
     .then((response) => {
+      
       return res.status(200).json(response);
     })
     .catch((err) => {
@@ -344,7 +341,6 @@ app.post("/api/register", requireJsonContent(), (req, res) => {
     admin: "0",
   });
   usercountID++;
-  console.log(user);
   user.save((err) => {
     if (err)
       res.status(500).send({ message: `Error al crear usuario: ${err}` });

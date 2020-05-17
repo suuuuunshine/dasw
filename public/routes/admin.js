@@ -18,7 +18,6 @@ const getPedidos = new Promise(function (res, rej) {
 let fullHTML = ''
 getPedidos.then(function (pedidos) {
   pedidos.forEach((pedido)=>{
-    console.log('pedido', pedido)
     fullHTML = fullHTML.concat(rowHTMLgenerator(pedido))
   })
   let header = document.querySelector("#header");header.insertAdjacentHTML("afterend", fullHTML);

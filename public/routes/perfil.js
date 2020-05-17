@@ -60,8 +60,8 @@ submitButton.addEventListener("click", updateUser);
 const cancelButton = document.getElementById("cancelar");
 cancelButton.addEventListener("click", user = JSON.parse(localStorage.getItem("User")))
 
-const input = document.querySelector("#userProfileAvatar");
-input.style.opacity = 0;
+// const input = document.querySelector("#userProfileAvatar");
+// input.style.opacity = 0;
 
 function handleInputFileChange(event) {
   const file = event.target.files[0];
@@ -105,7 +105,6 @@ function updateUser(event) {
   xhr.send(formData.id, formData);
   xhr.onload = function () {
     if (xhr.status != 200) {
-      console.log(xhr.status);
       console.log("Error de carga");
     } else {
       localStorage.setItem("User", JSON.stringify(formData));

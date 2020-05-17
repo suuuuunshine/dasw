@@ -72,10 +72,10 @@ function fullHTML(productsArray) {
   document.querySelector("main").insertAdjacentHTML("beforeend", background);
 
   productsArray.forEach((e) => {
-    if (e.hidden == 1) {
+    if (e.hidden == true) {
       hidden.push(e._id);
     }
-    if (e.deleted == 0) {
+    if (e.deleted == false) {
       let strList = `<div id="${e._id}" class = "col-sm-6 col-md-3 col-lg-3">
             <div class="shop-item-image">
             <div ><img src = "${e.imagen}" alt = "${e.nombre}"></div>
@@ -83,8 +83,6 @@ function fullHTML(productsArray) {
             </div>
         </div>`;
       SecondBlock.insertAdjacentHTML("beforeend", strList);
-    } else {
-      console.log("Sí, está eliminado");
     }
   });
 }
@@ -181,20 +179,18 @@ function agregarAlCarrito(producto) {
   });
 
   getCart.then((response) => {
-    console.log('response carrito', response)
     if(response != 'null'){ // quiere decir que ya hay carrito, se agrega el producto y se hace un push
         const cart = JSON.parse(response);
         const cartId = cart._id
         const pastProducts = cart.products.map((product) => {
           return product._id;
         });
-        console.log(pastProducts)
+
         products = pastProducts;
         products.push(productId);
         totalCarrito += cart.total
         totalCarrito += producto.precio;
-        console.log("PUT");
-        console.log(products);
+
         let xhr = new XMLHttpRequest();
         const cartObject = {
           _id: cartId,
@@ -202,7 +198,7 @@ function agregarAlCarrito(producto) {
           products,
           total: totalCarrito,
         };
-        console.log(cartObject);
+
         xhr.open("PUT", `/api/carts`, true);
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(JSON.stringify(cartObject));
@@ -222,7 +218,6 @@ function agregarAlCarrito(producto) {
           }
         };
     }else{
-        console.log("POST");
         products.push(productId)
         const cartObject = { user_id, products, total: totalCarrito };
         let xhr = new XMLHttpRequest();

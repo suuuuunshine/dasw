@@ -9,6 +9,7 @@ let pago = {
     envio: 0,
     total: 0
 }
+let cart = {}
 const USERID = JSON.parse(localStorage.getItem('User'))._id
 let getCart = new Promise(function (res, rej) { 
     let xhr = new XMLHttpRequest();
@@ -25,8 +26,9 @@ let getCart = new Promise(function (res, rej) {
     };
 });
 
-getCart.then(cart => { 
-    cart.products.forEach(function (product) {
+getCart.then(response => { 
+    cart = response
+    response.products.forEach(function (product) {
         Products.push(product);
     });
     fullHTML(Products);
@@ -44,7 +46,7 @@ function fullHTML(productos) {
         <td class="hidden-xs">
             <h5 class="product-title font-alt">$${producto.precio}.00</h5>
         </td>
-        <td class="pr-remove"><a onclick="sndN('${producto.nombre}','${producto.cantidad}','${producto.imagen}', '${producto.id}')" class="fa fa-times" data-toggle="modal" data-target="#modalborrar"></a></td></tr>`;
+        <td style="cursor: pointer;" class="pr-remove"><a onclick="openDeleteModal('${producto.nombre}','${producto.imagen}', '${producto._id}')" class="fa fa-times" data-toggle="modal" data-target="#modalborrar"></a></td></tr>`;
         tabla1.insertAdjacentHTML("beforeend", str);
 
         let precio = producto.precio;
@@ -74,13 +76,11 @@ function generarPedido(){
         xhr.send(JSON.stringify(pedido));
         checkout.disabled = true
         xhr.onload = function () {
-            console.log(xhr.status)
             if (xhr.status != 200) {
                 console.error(xhr.response)
                 console.error(xhr.status + ": " + xhr.statusText);
                 rej("Error de carga");
             } else {
-                console.log('PEDIDO REALIZADO')
                 let cart = JSON.parse(xhr.response);
                 res(cart);
             }
@@ -89,10 +89,9 @@ function generarPedido(){
     
     realizarPedido.then(response => { 
         console.log(response)
-        alert('Pedido realizado, ve a tu perfil para ver tu pedido')
-        window.location.href = './perfil.html'
         deleteCart().then(response=>{
-            console.log(response)
+            alert('Pedido realizado, ve a tu perfil para ver tu pedido')
+            window.location.href = './perfil.html'
            
         })
     }).catch(function (message) {
@@ -103,8 +102,9 @@ function generarPedido(){
 function deleteCart(){
    return new Promise((res, rej) =>{
         let xhr = new XMLHttpRequest();
-        xhr.open('DELETE', `/api/user/${USERID}/carts`);
-        xhr.send();
+        xhr.open('DELETE', `/api/users/${USERID}/carts`);
+        xhr.setRequestHeader("Content-Type", "application/json")
+        xhr.send(JSON.stringify(cart));
         xhr.onload = function () {
             if (xhr.status != 200) {
                 console.error(xhr.status + ": " + xhr.statusText);
@@ -117,35 +117,31 @@ function deleteCart(){
     })
 }
 
-function sndN(name, quant, img, id) {
-    document.querySelector('.modal-body').innerHTML = `<img src="${img}" alt="${name}"><h4>¿Seguro que deseas borrar ${quant} ${name} de tu carrito?</h4>`;
-    deleted = id;
-    console.log(deleted);
+
+
+function openDeleteModal(name, img, id) {
+    document.querySelector('.modal-body').innerHTML = `<img src="${img}" alt="${name}"><h4>¿Seguro que deseas borrar ${name} de tu carrito?</h4>`;
+    deleted = id
 }
 
-document.querySelector('#delete').addEventListener("click", ()=>{
-    let del;
-    for(let i=0;i<Products.length;i++){
-        del = Products[i].id;
-        console.log(del);
-        if(del==deleted){
-            Products.splice(i,1);
-            delProd(del);
-        }
-    }
-});
 
-function delProd(del){
+
+
+function quitarProducto(){
+    cart.products = cart.products.filter(product => {
+        return product._id !== deleted;
+      });
     let xhr = new XMLHttpRequest();
-    xhr.open('DELETE', `/pedido/${del}`);
-    //xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send();
-    xhr.onload = function () {
-
-        if (xhr.status == 200) {
-            location.reload();
+    xhr.open("PUT", `/api/carts`, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(JSON.stringify(cart));
+    xhr.onload = function (e) {
+        if (xhr.status != 200) {
+          console.error(xhr.response);
+          console.error(xhr.status + ": " + xhr.statusText);
         } else {
-            alert(xhr.status + ": " + xhr.statusText);
+            alert("Producto eliminado correctamente");
+            location.reload();
         }
-    };
+      };
 }
