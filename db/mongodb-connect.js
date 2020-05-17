@@ -1,10 +1,6 @@
 const mongoose = require('mongoose')
-let dbName = "ProyectoComida"
-let pass = "roSXjs6D9vdTWQ9A"
-let user = "dbUser"
 
-const dbURL = `mongodb+srv://${user}:${pass}@cluster0-q55ie.mongodb.net/${dbName}?retryWrites=true&w=majority`
-
+const dbURL = `mongodb+srv://admin:admin@restaurante-qcpn1.mongodb.net/restaurante?retryWrites=true&w=majority`
 
 function connect() {
 
@@ -13,7 +9,7 @@ function connect() {
         useCreateIndex:true,
         useUnifiedTopology:true,
     }).then(() =>{
-        console.log("Connected");
+        console.log("Database Connected");
     }).catch((err) =>{
         console.log("No conectado ",err);
     })

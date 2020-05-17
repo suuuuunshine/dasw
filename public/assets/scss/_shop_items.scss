@@ -4,6 +4,7 @@
 }
 
 .shop-item-image {
+	cursor: pointer;
 	position: relative;
 	overflow: hidden;
 }
@@ -21,6 +22,7 @@
 }
 
 .shop-item-image:after {
+	cursor: pointer!important;
 	position: absolute;
 	display: block;
 	content: "";

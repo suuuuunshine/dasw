@@ -1,11 +1,11 @@
 
 const getPedidos = new Promise(function (res, rej) { 
   let xhr = new XMLHttpRequest();
-  xhr.open('GET', '/api/pedidos');
+  xhr.open('GET', `/api/users/${user._id}/pedidos`);
   xhr.send();
   xhr.onload = function () {
       if (xhr.status != 200) {
-          alert(xhr.status + ": " + xhr.statusText);
+          // alert(xhr.status + ": " + xhr.statusText);
           rej("Error de carga");
       } else {
           let response = JSON.parse(xhr.response);
@@ -41,9 +41,6 @@ function rowHTMLgenerator(pedido) {
   </td>
   <td>
   <h5 class="product-title font-alt">${pedido.fecha}</h5>
-  </td>
-  <td>
-    <h5 class="product-title font-alt">${pedido.user.nombre} ${pedido.user.apellido}</h5>
   </td>
 </tr>`
 }

@@ -43,6 +43,7 @@ iframe {
 /* Transition elsements */
 a,
 .btn {
+  -webkit-transition: all 0.125s ease-in-out 0s;
   transition: all 0.125s ease-in-out 0s;
 }
 
@@ -59,6 +60,7 @@ a,
 .post-thumbnail,
 .post-video,
 .post-images-slider {
+  -webkit-transition: all 0.3s ease-in-out 0s;
   transition: all 0.3s ease-in-out 0s;
 }
 
@@ -71,6 +73,7 @@ a,
 .form-control:hover,
 .form-control:focus,
 .navbar-custom .dropdown-menu {
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -158,13 +161,12 @@ a,
   position: relative;
   background-color: #fff;
   z-index: 1;
-  background-size: cover;
 }
 
 .module,
 .module-small {
   position: relative;
-  padding: 100px 0;
+  padding: 140px 0;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
@@ -290,6 +292,7 @@ a,
   /* Chrome10+,Safari5.1+ */
   /* Opera 11.10+ */
   /* IE10+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(25%, rgba(40, 115, 113, 0.57)), color-stop(75%, rgba(115, 54, 31, 0.67)));
   background: linear-gradient(to bottom, rgba(40, 115, 113, 0.57) 25%, rgba(115, 54, 31, 0.67) 75%);
   /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#000000',GradientType=0 );
@@ -404,7 +407,7 @@ a,
 }
 
 .mt-70 {
-  margin-top: 50px !important;
+  margin-top: 70px !important;
 }
 
 .mt-80 {
@@ -820,6 +823,7 @@ a,
   height: 33px;
   border: 1px solid #EAEAEA;
   border-radius: 2px;
+  -webkit-transition: all 0.4s ease-in-out 0s;
   transition: all 0.4s ease-in-out 0s;
 }
 
@@ -995,6 +999,7 @@ General Styles - FlexSlider
 ------------------------------------------------------------------- */
 .flex-direction-nav a,
 .flex-control-nav > li > a {
+  -webkit-transition: all 0.3s ease-in-out 0s;
   transition: all 0.3s ease-in-out 0s;
 }
 
@@ -1030,7 +1035,6 @@ General Styles - FlexSlider
   z-index: 11;
   text-align: center;
   -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
   transform: translateX(-50%);
 }
 
@@ -1075,6 +1079,7 @@ Hero Slider
 
 .hero-slider .slides {
   height: 100% !important;
+  -webkit-transition-delay: 1s;
   transition-delay: 1s;
 }
 
@@ -1158,6 +1163,7 @@ General Styles - Owlcarousel
   width: 6px;
   margin: 0 3px 5px;
   border-radius: 6px;
+  -webkit-transition: all 0.3s ease-in-out 0s;
   transition: all 0.3s ease-in-out 0s;
 }
 
@@ -1248,10 +1254,12 @@ General Styles - Owlcarousel
   text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 11px;
+  -webkit-transition: background, padding 0.4s ease-in-out 0s;
   transition: background, padding 0.4s ease-in-out 0s;
 }
 
 .navbar a {
+  -webkit-transition: color 0.125s ease-in-out 0s;
   transition: color 0.125s ease-in-out 0s;
 }
 
@@ -1260,6 +1268,7 @@ General Styles - Owlcarousel
   border-radius: 0;
   border: 0;
   padding: 0;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -1404,7 +1413,7 @@ General Styles - Owlcarousel
 
 /* Agency Page Header */
 .agency-page-header:before {
-  background: transparent;
+  background: rgba(0, 0, 0, 0);
 }
 
 /* About us Page Header */
@@ -1487,6 +1496,7 @@ General Styles - Owlcarousel
 /* Landing Page Header */
 .landing-header:before {
   position: absolute;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), color-stop(95%, rgba(119, 47, 109, 0.52)), to(rgba(115, 35, 105, 0.58)));
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(119, 47, 109, 0.52) 95%, rgba(115, 35, 105, 0.58) 100%);
   content: " ";
   height: 100%;
@@ -1499,9 +1509,8 @@ General Styles - Owlcarousel
   margin-top: -145px;
 }
 
-.shop-page-header{
-  /* Add the blur effect */
-  /* filter: blur(2px); */
+.shop-page-header:before {
+  background: rgba(34, 34, 34, 0.3);
 }
 
 /*--------------------------------------------------------------
@@ -1684,7 +1693,6 @@ Google map
   opacity: 1;
   bottom: 50%;
   -webkit-transform: translateY(50%);
-  -ms-transform: translateY(50%);
   transform: translateY(50%);
 }
 
@@ -1771,29 +1779,6 @@ Google map
   -o-transform: rotate(45deg);
   margin-left: -8px;
 }
-
-
-/*
-
-Nos valio queso y aqui vamos a añadir el codigo css que nos haga falta
-
-*/
-
-.blur :not(){
-  filter: blur(10px);
-}
-
-.desc {
-  width: 230px;
-  overflow:hidden;
-  word-break:break-all;
-}
-/*
-
-
-
-
-*/
 
 .price-table h4 {
   color: #111;
@@ -1974,7 +1959,6 @@ Nos valio queso y aqui vamos a añadir el codigo css que nos haga falta
 
 .work-item:hover .work-image > img {
   -webkit-transform: scale(1.1) rotate(2deg);
-  -ms-transform: scale(1.1) rotate(2deg);
   transform: scale(1.1) rotate(2deg);
 }
 
@@ -1983,7 +1967,6 @@ Nos valio queso y aqui vamos a añadir el codigo css que nos haga falta
   opacity: 1;
   z-index: 3;
   -webkit-transform: translateY(50%);
-  -ms-transform: translateY(50%);
   transform: translateY(50%);
 }
 
@@ -2167,7 +2150,6 @@ Nos valio queso y aqui vamos a añadir el codigo css que nos haga falta
   opacity: 1;
   bottom: 50%;
   -webkit-transform: translateY(50%);
-  -ms-transform: translateY(50%);
   transform: translateY(50%);
 }
 
@@ -2508,28 +2490,25 @@ Nos valio queso y aqui vamos a añadir el codigo css que nos haga falta
 .shop-item {
   text-align: center;
   margin: 0 0 40px;
-
 }
 
 .shop-item-image {
-  width: 100%;
+	cursor: pointer;
   position: relative;
   overflow: hidden;
 }
 
-.shop-item-image img{
-  overflow: hidden; 
-  object-fit: cover;
-  display: flex; 
+.shop-item-image img {
+  width: 100%;
 }
 
 .shop-item-detail,
 .shop-item-image:after {
+  -webkit-transition: all 0.4s ease-in-out 0s;
   transition: all 0.4s ease-in-out 0s;
 }
 
 .shop-item-image:after {
-  cursor: pointer;
   position: absolute;
   display: block;
   content: "";
@@ -2568,7 +2547,6 @@ Nos valio queso y aqui vamos a añadir el codigo css que nos haga falta
   opacity: 1;
   bottom: 50%;
   -webkit-transform: translateY(50%);
-  -ms-transform: translateY(50%);
   transform: translateY(50%);
 }
 
@@ -2577,6 +2555,7 @@ Nos valio queso y aqui vamos a añadir el codigo css que nos haga falta
 ------------------------------------------------------------------- */
 .ex-product {
   opacity: .7;
+  -webkit-transition: all 0.4s ease-in-out 0s;
   transition: all 0.4s ease-in-out 0s;
 }
 
@@ -2635,19 +2614,17 @@ Nos valio queso y aqui vamos a añadir el codigo css que nos haga falta
   background-color: rgba(2, 2, 2, 0.7);
 }
 
- .content-box {
+.showcase-page .content-box {
   display: block;
   margin-bottom: 45px;
-  height: 140px;
 }
 
- .content-box .content-box-image {
-  cursor: pointer;
+.showcase-page .content-box .content-box-image {
   border-radius: 6px;
   -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+          backface-visibility: hidden;
   overflow: hidden;
-  height: 100%;
+  -webkit-box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.15);
   box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.15);
   margin-bottom: 15px;
   transition: 0.35s ease-out;
@@ -2655,10 +2632,11 @@ Nos valio queso y aqui vamos a añadir el codigo css que nos haga falta
   -moz-transition: 0.35s ease-out;
 }
 
-.content-box .content-box-image:hover {
+.showcase-page .content-box .content-box-image:hover {
   transform: translate3d(0, -10px, 0);
   -webkit-transform: translate3d(0, -10px, 0);
-  box-shadow: 0 23px 40px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 23px 40px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 23px 40px rgba(0, 0, 0, 0.2);
 }
 
 /*--------------------------------------------------------------
@@ -2958,55 +2936,4 @@ Nos valio queso y aqui vamos a añadir el codigo css que nos haga falta
     width: 100%;
   }
 }
-
-#ProductBasket span{
-  position: relative;
-  transition-duration: 0.4s;
-  overflow: hidden;
-}
-
-#ProductBasket span:after {
-  content: "";
-  background: rgb(255, 0, 0);
-  display: block;
-  position: absolute;
-  padding-top: 300%;
-  padding-left: 350%;
-  margin-left: -50px!important;
-  margin-top: -120%;
-  opacity: 0;
-  transition: all 1s
-}
-
-#ProductBasket span:active:after {
-  padding: 0;
-  margin: 0;
-  opacity: 1;
-  transition: 0s
-}
-
-hr.divider { 
-  height: 30px; 
-  border-style: solid; 
-  border-color: #8c8b8b; 
-  border-width: 1px 0 0 0; 
-  border-radius: 20px; 
-} 
-hr.divider:before { 
-  display: block; 
-  content: ""; 
-  height: 30px; 
-  margin-top: -31px; 
-  border-style: solid; 
-  border-color: #8c8b8b; 
-  border-width: 0 0 1px 0; 
-  border-radius: 20px; 
-}
-
-.modal-body{
-  width: 20vw;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  
-}
+/*# sourceMappingURL=style.css.map */

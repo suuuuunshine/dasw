@@ -72,7 +72,7 @@
 
             <li class="navbar-header"><a href="menu.html">Menu</a></li>
 
-            <li class="navbar-header"><a href="canasta.html">Canasta</a></li>
+            <li class="navbar-header"><a href="carrito.html">Carrito</a></li>
 
             <li class="navbar-header"><a href="perfil.html">Perfil</a></li>
 
@@ -90,7 +90,7 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
-              <h1 class="module-title font-alt">Canasta</h1>
+              <h1 class="module-title font-alt">Carrito</h1>
             </div>
           </div>
           <hr class="divider-w pt-20">
@@ -102,8 +102,6 @@
                     <th class="hidden-xs">Item</th>
                     <th>Descripcion</th>
                     <th class="hidden-xs">Precio</th>
-                    <th>Cantidad</th>
-                    <th>Total</th>
                     <th>Quitar</th>
                   </tr>
                 </tbody>
@@ -135,7 +133,7 @@
                     </tr>
                   </tbody>
                 </table>
-                <button class="btn btn-lg btn-block btn-round btn-d" type="submit">Pagar</button>
+                <button class="btn btn-lg btn-block btn-round btn-d" id="checkout" type="submit">Pagar</button>
               </div>
             </div>
           </div>
@@ -155,7 +153,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-            <button id="delete" type="button" class="btn btn-primary">Quitar de la canasta</button>
+            <button id="delete" type="button" onclick="quitarProducto()" class="btn btn-primary">Quitar del carrito</button>
           </div>
         </div>
       </div>
@@ -165,7 +163,7 @@
     JavaScripts
     =============================================
     -->
-  <script src="./routes/canasta.js"></script>
+  <script src="./routes/carrito.js"></script>
   <script>
     //Oculta la pestaña de login en el menu_producto
     if(localStorage.token != ''){
